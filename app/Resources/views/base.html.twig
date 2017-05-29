@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Sikkim Rooms{% endblock %}</title>
     {% block stylesheets %}
         <link type="text/css" rel="stylesheet" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
@@ -23,13 +23,13 @@
                 <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle">
                     <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" class="navbar-brand">
+                <a href="{{ path('homepage') }}" class="navbar-brand">
                     <!-- Logo -->
                     <div id="logo"><a href="#"><img src="{{ asset('img/logo.png') }}"></a></div>
                 </a></div>
             <div id="navbar-collapse-grid" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ path('homepage') }}">Home</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact</a></li>
@@ -170,7 +170,7 @@
             <div class="col-md-2 col-sm-2">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="{{ path('homepage') }}">Home</a>
                     </li>
                     <li>
                         <a href="#">About us</a>
