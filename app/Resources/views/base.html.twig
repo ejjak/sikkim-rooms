@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/smoothness/jquery-ui-1.10.4.custom.min.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <!-- Navigation -->
+    <div class="navbar navbar-default" id="sticky">
+        <div class="container">
+            <div class="navbar-header col-lg-8">
+                <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    <!-- Logo -->
+                    <div id="logo"><a href="#"><img src="{{ asset('img/logo.png') }}"></a></div>
+                </a></div>
+            <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="frame">
+    {% block frame %}
+        <img src="{{ asset('img/frame.jpg') }}" alt="">
+    {% endblock %}
+    <section id="reservation-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-inline reservation-horizontal clearfix" role="form" method="post" action=""
+                          name="reservationform" id="reservationform">
+                        <!-- Error message -->
+                        <div id="message"></div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="email" accesskey="E">Destination</label>
+                                    <select class="form-control" name="room" id="room">
+                                        <option selected="selected" disabled="disabled">Select Destination</option>
+                                        <option value="{{ path('hotel-listing') }}">Gangtok</option>
+                                        <option value="{{ path('namchi-hotel') }}">Namchi</option>
+                                        <option value="{{ path('pelling-hotel') }}">Pelling</option>
+                                        <option value="{{ path('lachung-hotel') }}">Lachung</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="checkin">Check-in</label>
+                                    {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
+                                         {#data-trigger="hover" data-placement="right"#}
+                                         {#data-content="Check-In is from 11:00"><i class="fa fa-info-circle fa-lg"> </i>#}
+                                    {#</div>#}
+                                    <i class="fa fa-calendar infield"></i>
+                                    <input name="checkin" type="text" id="checkin" value="" class="form-control"
+                                           placeholder="Check-in"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="checkout">Check-out</label>
+                                    {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
+                                         {#data-trigger="hover" data-placement="right"#}
+                                         {#data-content="Check-out is from 12:00"><i class="fa fa-info-circle fa-lg"> </i>#}
+                                    {#</div>#}
+                                    <i class="fa fa-calendar infield"></i>
+                                    <input name="checkout" type="text" id="checkout" value="" class="form-control"
+                                           placeholder="Check-out"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="room">Room Type</label>
+                                    {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
+                                         {#data-trigger="hover" data-placement="right"#}
+                                         {#data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i#}
+                                                {#class="fa fa-info-circle fa-lg"> </i></div>#}
+                                    <select class="form-control" name="room" id="room">
+                                        <option selected="selected" disabled="disabled">Select Room</option>
+                                        <option value="Single">Standard</option>
+                                        <option value="Double">Deluxe</option>
+                                        <option value="Deluxe">Super Deluxe</option>
+                                        <option value="Deluxe">Executive</option>
+                                        <option value="Deluxe">Luxury</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="room">Price Range</label>
+                                    {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
+                                         {#data-trigger="hover" data-placement="right"#}
+                                         {#data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i#}
+                                                {#class="fa fa-info-circle fa-lg"> </i></div>#}
+                                    <select class="form-control" name="room" id="room">
+                                        <option selected="selected" disabled="disabled">Select Price</option>
+                                        <option value="Single">800 - 1500</option>
+                                        <option value="Double">1500 - 3000</option>
+                                        <option value="Deluxe">3000 - 5000</option>
+                                        <option value="Deluxe">5000 - 8000</option>
+                                        <option value="Deluxe">8000 - 12000</option>
+                                        <option value="Deluxe">12000 - more</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-block">Search Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section id="room-carousel">
+    <div class="container">
+        <div class="row">
+            {% block carousel %}
+            {% endblock %}
+        </div>
+    </div>
+</section>
+<section id="main-content">
+    <div class="container">
+        <div class="row">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <h4>Head Office:</h4>
+                <p>Decorum LLP,<br>
+                    A 246, New Ashok Nagar,<br>
+                    Delhi - 110096</p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <h4>Regional Office:</h4>
+                <address>
+                    <strong>Starhotel</strong><br>
+                    Decorum LLP,<br>
+                    Upper Sichey, Gangtok,<br>
+                    Sikkim – 737301
+                </address>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">&copy; 2017 Sikkim Rooms All Rights Reserved </div>
+                <div class="col-xs-6 text-right">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/site.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-ui-1.10.4.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.sticky.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.forms.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+
+    <script type="text/javascript">
+        $('#reservationform').submit(function(e) {
+            document.location = $(this).find('[name="room"]').val();
+
+            e.preventDefault();
+            return false;
+        });
+    </script>
+{% endblock %}
+</body>
+</html>

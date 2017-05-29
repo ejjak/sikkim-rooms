@@ -1,0 +1,22 @@
+{
+  "name": "sikkim-rooms",
+  "description": "Symfony Standard Edition ========================",
+  "main": "index.js",
+  "authors": [
+    ""
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}

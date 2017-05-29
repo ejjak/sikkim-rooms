@@ -1,0 +1,629 @@
+{% extends 'base.html.twig' %}
+{% block carousel %}
+    <div id="owl-gallery" class="owl-carousel">
+        <div class="item">
+            <img src="{{ asset('img/listing/pelling1.jpg') }}" alt="" class="img-responsive">
+            <h3>Standard<span>&#x20b9; 1500</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/pelling2.jpg') }}" alt="" class="img-responsive">
+            <h3>Deluxe<span>&#x20b9; 3000</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/pelling3.jpg') }}" alt="" class="img-responsive">
+            <h3>Super Deluxe<span>&#x20b9; 5000</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/pelling4.jpg') }}" alt="" class="img-responsive">
+            <h3>Executive<span>&#x20b9; 8000</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/pelling5.jpg') }}" alt="" class="img-responsive">
+            <h3>Luxury<span>&#x20b9; 12000</span></h3>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div class="col-lg-9">
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling1.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;2000 - &#x20b9;5500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Himalaya Glory</h3>
+                    <span class="address">Lower Pelling, West Sikkim</span><br>
+                    <span class="com">Email: himalayaglory@gmail.com / www.hotelhimalayaglory.com</span><br>
+                    <span class="contact"><strong>Call us : 9830485032	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                            {#data-placement="top" data-content="Banjhakari Falls">#}
+                            {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                            {#data-placement="top" data-content="Helipad">#}
+                            {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hotelhimalayaglory.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling2.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;2000 - &#x20b9;6000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel D-Zongrilla</h3>
+                    <span class="address">Lower Pelling, West Sikkim</span><br>
+                    <span class="com">Email: hoteldzongrilla@gmail.com	 	 </span><br>
+                    <span class="contact"><strong>Call us : 090088949611 / 9681051831	 	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="#" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling3.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;2000 - &#x20b9;5000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Kabur</h3>
+                    <span class="address">Upper Pelling, West Sikkim	 	</span><br>
+                    <span class="com">Email: hotelkabur@gmail.com	  </span><br>
+                    <span class="contact"><strong>Call us : 9775972112	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="#" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling4.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Heruka</h3>
+                    <span class="address">Middle Pelling West Sikkim</span><br>
+                    <span class="com">Email: herkahotel@gmail.com	/ www.hotelheruka.jimdo.com	 	 </span><br>
+                    <span class="contact"><strong>Call us : 987654321 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hotelheruka.jimdo.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling5.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Samtenling</h3>
+                    <span class="address">P.N.G.S Road (Near SBI) West Sikkim </span><br>
+                    <span class="com">Email: tnghowrah@yahoo.co.in	  </span><br>
+                    <span class="contact"><strong>Call us : 09433395941 / 09830234987	 	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="#" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling6.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Mount View</h3>
+                    <span class="address">Middle Pelling West Sikkim	 	  </span><br>
+                    <span class="com">Email: hmvpelling@gmail.com	   </span><br>
+                    <span class="contact"><strong>Call us : 9051043643	  </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="#" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling7.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Florent Hotel & Resort</h3>
+                    <span class="address">New Helipad, Pelling West Sikkim</span><br>
+                    <span class="com">Email: lorethotel@gmail.com	 / www.florethotel.com	  </span><br>
+                    <span class="contact"><strong>Call us : 967422214 / 9674922213	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.florethotel.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling8.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Garuda</h3>
+                    <span class="address">Upper Pelling West Sikkim	 </span><br>
+                    <span class="com">Email: garuda_pelling@rediffmail.com	 	 </span><br>
+                    <span class="contact"><strong>Call us : 9733076484	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hotelgarudapelling.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling9.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Golden Sunrise & Spa</h3>
+                    <span class="address">Below Old State Bank Lower Pelling West Sikkim	 	 	 	</span><br>
+                    <span class="com">Email: goldensunrisespa@gmail.com	 	  </span><br>
+                    <span class="contact"><strong>Call us : 9876543210	</strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="#" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling10.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Khechuperi</h3>
+                    <span class="address">upperpelling West sikkim	 </span><br>
+                    <span class="com">Email: hotelkhechupari@gmail.com	 	  </span><br>
+                    <span class="contact"><strong>Call us : 9434868388	</strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Service"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Banjhakari Falls">#}
+                        {#<img src="{{ asset('img/destination/gtk5.jpg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Helipad">#}
+                        {#<img src="{{ asset('img/destination/helipad.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="#" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling11.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1800 - &#x20b9;3500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Red Palace</h3>
+                    <span class="address">Yuksom Kothi, PO Yuksom</span><br>
+                    <span class="com">Email: phodangamarpoo@gmail.com	 	  </span><br>
+                    <span class="contact"><strong>Call us : 9733077013 / 9593668773	 	</strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-shopping-basket" title="Lundary"></i>
+                        <i class="fa fa-car" title="Car Parking"></i>
+                        <i class="fa fa-file-video-o" title="CCTV"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-book" title="Library"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                        data-placement="top" data-content="Karthok Lake">
+                        <img src="{{ asset('img/destination/karthok-lake.jpeg') }}" class="img-circle grow" alt=""></li>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                        data-placement="top" data-content="Pemayangtse Monastery">
+                        <img src="{{ asset('img/destination/pemayangtse-monastery.jpeg') }}" class="img-circle grow" alt=""></li>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Khecheopalri Lake">
+                            <img src="{{ asset('img/destination/khecheopalri-lake.jpeg') }}" class="img-circle grow" alt=""></li>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Dubdi Monastery">
+                            <img src="{{ asset('img/destination/dubdi-monastery.jpeg') }}" class="img-circle grow" alt=""></li>
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hotelredpalace.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling12.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1500 - &#x20b9;3000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Takura</h3>
+                    <span class="address">SH-510, Pelling Rimbi Road, Pelling West Sikkim</span><br>
+                    <span class="com">Email: tarukahotel@gmail.com	 / www.hoteltakura.in	 </span><br>
+                    <span class="contact"><strong>Call us : 7055517601 / 09832790281	 	 </strong></span><br>
+                    <span class="amenities">
+                         <i class="fa fa-cutlery" title="Restaurant"></i>
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-glass" title="Mini Bar"></i>
+                        <i class="fa fa-clone" title="Toiletries"></i>
+                        <i class="fa fa-newspaper-o" title="News Paper"></i>
+                        <i class="fa fa-fire" title="Room Heater"></i>
+                        <i class="fa fa-shower" title="Geaser"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                            {#data-placement="top" data-content="Karthok Lake">#}
+                            {#<img src="{{ asset('img/destination/karthok-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                            {#data-placement="top" data-content="Pemayangtse Monastery">#}
+                            {#<img src="{{ asset('img/destination/pemayangtse-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                            {#data-placement="top" data-content="Khecheopalri Lake">#}
+                            {#<img src="{{ asset('img/destination/khecheopalri-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                            {#data-placement="top" data-content="Dubdi Monastery">#}
+                            {#<img src="{{ asset('img/destination/dubdi-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hoteltakura.in" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling13.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;4500 - &#x20b9;7000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Sonamchen</h3>
+                    <span class="address">Near Old Helipad Ground, Upper Pelling, West Sikkim</span><br>
+                    <span class="com">Email: hotelssonamchenpelling@gmail.com / comfortinngroup@gmail.com / Jayanjain@gmail.com</span><br>
+                    <span class="contact"><strong>Call us : 81700282332/8170028224/8170028231/03592204199 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Services"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Karthok Lake">#}
+                        {#<img src="{{ asset('img/destination/karthok-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Pemayangtse Monastery">#}
+                        {#<img src="{{ asset('img/destination/pemayangtse-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Khecheopalri Lake">#}
+                        {#<img src="{{ asset('img/destination/khecheopalri-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Dubdi Monastery">#}
+                        {#<img src="{{ asset('img/destination/dubdi-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hotelsonamchenpelling.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling14.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;2000 - &#x20b9;5000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Summit New Regency</h3>
+                    <span class="address">Rimbi Road, Near SBI Bank, Lower Pelling West Sikkim	 	 	 	 </span><br>
+                    <span class="com">Email: nsummitnewregency@gmail.com	 	 </span><br>
+                    <span class="contact"><strong>Call us : 3533040100 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Services"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Karthok Lake">#}
+                        {#<img src="{{ asset('img/destination/karthok-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Pemayangtse Monastery">#}
+                        {#<img src="{{ asset('img/destination/pemayangtse-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Khecheopalri Lake">#}
+                        {#<img src="{{ asset('img/destination/khecheopalri-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Dubdi Monastery">#}
+                        {#<img src="{{ asset('img/destination/dubdi-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.summitnewaregency.chobs.in" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/pelling15.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1800 - &#x20b9;4500</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Simvo</h3>
+                    <span class="address">Helipad Ground, West Sikkim 	 	  </span><br>
+                    <span class="com">Email:simvihotel@gmail.com	/ www.biswasgroupofhotels.com	 	   </span><br>
+                    <span class="contact"><strong>Call us : 9733011761	 </strong></span><br>
+                    <span class="amenities">
+                        <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Services"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Karthok Lake">#}
+                        {#<img src="{{ asset('img/destination/karthok-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Pemayangtse Monastery">#}
+                        {#<img src="{{ asset('img/destination/pemayangtse-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Khecheopalri Lake">#}
+                        {#<img src="{{ asset('img/destination/khecheopalri-lake.jpeg') }}" class="img-circle grow" alt=""></li>#}
+                        {#<li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"#}
+                        {#data-placement="top" data-content="Dubdi Monastery">#}
+                        {#<img src="{{ asset('img/destination/dubdi-monastery.jpeg') }}" class="img-circle grow" alt=""></li>#}
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.biswasgroupofhotels.com	 	 " target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 hidden-sm hidden-xs">
+        {{ include(':default:advert.html.twig') }}
+    </div>
+{% endblock %}

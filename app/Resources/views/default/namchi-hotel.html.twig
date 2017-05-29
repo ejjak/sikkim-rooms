@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+{% block carousel %}
+    <div id="owl-gallery" class="owl-carousel">
+        <div class="item">
+            <img src="{{ asset('img/listing/namchi1.jpg') }}" alt="" class="img-responsive">
+            <h3>Standard<span>&#x20b9; 1500</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/namchi2.jpg') }}" alt="" class="img-responsive">
+            <h3>Deluxe<span>&#x20b9; 3000</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/namchi3.jpg') }}" alt="" class="img-responsive">
+            <h3>Super Deluxe<span>&#x20b9; 5000</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/namchi1.jpg') }}" alt="" class="img-responsive">
+            <h3>Executive<span>&#x20b9; 8000</span></h3>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/listing/namchi2.jpg') }}" alt="" class="img-responsive">
+            <h3>Luxury<span>&#x20b9; 12000</span></h3>
+        </div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div class="col-lg-9">
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/namchi1.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1600 - &#x20b9;4800</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Cherry Resort</h3>
+                    <span class="address">Temi Tea Garden, South Sikkim, India	 	 	 </span><br>
+                    <span class="com">Email: cherryresorttemi@gmail.com	 / www.cherryresort.com</span><br>
+                    <span class="contact"><strong>Call us : 91 8016488737 / 9800013666	 	 </strong></span><br>
+                    <span class="amenities">
+                         <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Services"></i>
+                        <i class="fa fa-video-camera" title="CCTV"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Samdruptse">
+                            <img src="{{ asset('img/destination/samdruptse.jpeg') }}" class="img-circle grow" alt=""></li>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Temi Tea Garden">
+                            <img src="{{ asset('img/destination/temi-tea.jpeg') }}" class="img-circle grow" alt=""></li>
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.cherryresort.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/namchi2.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;2000 - &#x20b9;4000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Kava Suites</h3>
+                    <span class="address">Namchi, South Sikkim, India</span><br>
+                    <span class="com">Email: kavahotels@gmail.com / www.kavahotels.com	 </span><br>
+                    <span class="contact"><strong>Call us : 91 9647874540 / 9679602975	 	  </strong></span><br>
+                    <span class="amenities">
+                         <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Services"></i>
+                        <i class="fa fa-video-camera" title="CCTV"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Samdruptse">
+                            <img src="{{ asset('img/destination/samdruptse.jpeg') }}" class="img-circle grow" alt=""></li>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Temi Tea Garden">
+                            <img src="{{ asset('img/destination/temi-tea.jpeg') }}" class="img-circle grow" alt=""></li>
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.kavahotels.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-listing">
+            <div class="col-lg-5 col-sm-6 row">
+                <div class="hotel-img">
+                    <img src="{{ asset('img/listing/namchi3.jpg') }}" alt="" class="img-responsive">
+                    <span class="price">&#x20b9;1000 - &#x20b9;2000</span>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="hotel-details">
+                    <h3>Hotel Hangkhim</h3>
+                    <span class="address">Melli Road, Tharpu, Namchi, Sikkim	 	 	 </span><br>
+                    <span class="com">Email: hotelhangkhim@gmail.com	/ www.hotelhangkhim.com	 	 </span><br>
+                    <span class="contact"><strong>Call us : 91 3595263025	  </strong></span><br>
+                    <span class="amenities">
+                         <i class="fa fa-wifi" title="Wifi"></i>
+                        <i class="fa fa-cab" title="Cab Services"></i>
+                        <i class="fa fa-video-camera" title="CCTV"></i>
+                        <i class="fa fa-plane" title="Travel Desk"></i>
+                        <i class="fa fa-medkit" title="Dr. on call"></i>
+                        <i class="fa fa-cutlery" title="Food"></i>
+                    </span>
+                    <h5><a href="#" target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                        Nearby Milestones
+                    </h5>
+                    <ul>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Samdruptse">
+                            <img src="{{ asset('img/destination/samdruptse.jpeg') }}" class="img-circle grow" alt=""></li>
+                        <li class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover"
+                            data-placement="top" data-content="Temi Tea Garden">
+                            <img src="{{ asset('img/destination/temi-tea.jpeg') }}" class="img-circle grow" alt=""></li>
+
+
+                    </ul>
+                    <span class="more"><a href="http://www.hotelhangkhim.com" target="_blank">more</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 hidden-sm hidden-xs">
+        {{ include(':default:advert.html.twig') }}
+    </div>
+{% endblock %}
