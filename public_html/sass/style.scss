@@ -5,6 +5,7 @@ $open-sans: 'Open Sans', sans-serif;
 body {
   overflow-x: hidden;
   font-family: $open-sans;
+  background: #fcfcfc;
 }
 html, html a {
   -webkit-font-smoothing: antialiased !important;
@@ -113,7 +114,7 @@ a:hover, a:focus, .box-icon a:hover, .usp a:hover i {
 }
 /* Form */
 label {
-  color: #5e5e5e;
+  color: #f1f1f1;
 }
 .form-control {
   color: #bfbfbf;
@@ -403,7 +404,7 @@ header nav {
 
 #frame{
   img{
-    height: 580px;
+    height:418px;
     width: 100%;
   }
 }
@@ -411,7 +412,7 @@ header nav {
 @media (max-width: 414px) {
   #frame{
     img{
-      height:300px;
+      height:260px;
     }
   }
   .navbar{
@@ -601,12 +602,12 @@ header nav {
 #reservation-form .reservation-horizontal, #reservation-form .reservation-vertical, #contact-form .contact-vertical {
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  border: 1px solid #ebebeb;
+  border: 1px solid #111;
   -webkit-box-shadow: 0 3px 0 0 rgba(0,0,0,0.12);
   box-shadow: 0 3px 0 0 rgba(0,0,0,0.12);
   padding: 15px 30px;
   z-index: 9999;
-  background-color:rgba(255, 255, 255, 0.7);
+  background-color:rgba(0, 0, 0, 0.6);
 }
 #reservation-form .reservation-vertical h2 {
   margin-top: 0;
@@ -958,18 +959,25 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
 }
 
 #hotel-listing{
-  margin-bottom: 30px;
+  margin-bottom:15px;
   border: 1px solid #f0f0f0;
   height:100%;
   overflow: hidden;
   position: relative;
+  background: #FFF;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
   .price{
-   position: absolute;
+    display: block;
+    text-align: right;
+    width:100%;
+    position: absolute;
     background-color: rgba(0,0,0,0.5);
     right:16px;
-    bottom:20px;
+    bottom:0;
     color: #f1f1f1;
-    padding:10px 20px;
+    padding:15px 30px;
     font-size:18px;
     font-weight: bold;
   }
@@ -986,7 +994,7 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
   }
   .fa{
     margin: 0 10px 0 0;
-    color: #9fa8a9;
+    color: #78bbda;
     font-size: 16px;
   }
   .amenities{
@@ -1009,16 +1017,12 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
     font-size: 11px;
     color: #5e5e5e;
     border: 1px solid #f0f0f0;
-    padding:2px 10px;
-    border-radius:10px;
-    -moz-border-radius:10px;
-    -webkit-border-radius:10px;
+    padding:3px 10px;
     position: absolute;
     bottom: 0;
     right: 0;
-    letter-spacing:0.1em;
   }
-    a:hover{ background: #f0f0f0; color:#111;}
+    a:hover{ background: #111; color:#FFF;}
   }
 }
 
@@ -1050,6 +1054,7 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
   border:1px solid #f0f0f0;
   padding:15px;
   margin-bottom: 20px;
+  background: #FFF;
 }
 /* Footer
 -------------------------------------------------- */
