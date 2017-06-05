@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
             {% block carousel %}
                 <div id="owl-gallery" class="owl-carousel">
-                    <div class="item">
-                        <a href="#"><img src="{{ asset('img/rooms/1.jpg') }}" alt="" class="img-responsive"></a>
+                    <div class="item grow">
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/1.jpg') }}" alt="" class="img-responsive"></a>
                         {#<h3>Standard<span>&#x20b9; 1500</span></h3>#}
                     </div>
-                    <div class="item">
-                        <a href="#"><img src="{{ asset('img/rooms/2.jpg') }}" alt="" class="img-responsive"></a>
+                    <div class="item grow">
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/2.jpg') }}" alt="" class="img-responsive"></a>
                         {#<h3>Deluxe<span>&#x20b9; 3000</span></h3>#}
                     </div>
-                    <div class="item">
-                        <a href="#"><img src="{{ asset('img/rooms/3.jpg') }}" alt="" class="img-responsive"></a>
+                    <div class="item grow">
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/3.jpg') }}" alt="" class="img-responsive"></a>
                         {#<h3>Super Deluxe<span>&#x20b9; 5000</span></h3>#}
                     </div>
-                    <div class="item">
-                        <a href="#"><img src="{{ asset('img/rooms/4.jpg') }}" alt="" class="img-responsive"></a>
+                    <div class="item grow">
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/4.jpg') }}" alt="" class="img-responsive"></a>
                         {#<h3>Executive<span>&#x20b9; 8000</span></h3>#}
                     </div>
                 </div>
@@ -22,7 +22,7 @@
 {% block body %}
     <div class="col-lg-12">
         <div id="about">
-            <h2 class="lined-heading"><span>About Sikkim Rooms</span></h2>
+            {#<h2 class="lined-heading"><span>About Sikkim Rooms</span></h2>#}<br>
             <p>
                 <strong>SIKKIM ROOMS</strong> is created by the team behind Decorum LLP, an organization tasked with scouring the globe in search
                 of the ultimate hotels and hospitality experiences. We’ve combined first-hand knowledge of five-star hospitality
