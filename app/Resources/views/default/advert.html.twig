@@ -1,11 +1,14 @@
 {% block body %}
-
+    <div id="add">
     <div class="adverts">
-        <img src="{{ asset('img/adverts/1.jpg') }}" alt="">
+       <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/1.jpg') }}" alt="" class="img-responsive"></a>
     </div>
     <div class="adverts">
-        <img src="{{ asset('img/adverts/2.jpg') }}" alt="">
+        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/2.jpg') }}" alt="" class="img-responsive"></a>
     </div>
-
+        <div class="adverts">
+            <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/3.jpg') }}" alt="" class="img-responsive"></a>
+        </div>
+    </div>
 
 {% endblock %}

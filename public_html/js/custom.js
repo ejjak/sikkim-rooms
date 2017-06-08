@@ -391,3 +391,41 @@ jQuery(document).ready(function () {
             jQuery(".guests-select .total").html(total);
         });
 });
+
+// FORM SELECT
+$(document).ready(function() {
+
+    $("#room").change(function() {
+        var val = $(this).val();
+        $("#price").html(options[val]);
+    });
+
+
+    var options = [
+//                "<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>",
+//                "<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>",
+//                "<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>",
+
+        "<option value='Single'>800 - 1500</option><option value='Double'>1500 - 3000</option>",
+        "<option value='Double'>1500 - 3000</option><option value='Deluxe'>3000 - 5000</option>",
+        "<option value='Deluxe'>3000 - 5000</option><option value='Deluxe'>5000 - 8000</option>",
+        "<option value='Deluxe'>5000 - 8000</option><option value='Deluxe'>8000 - 12000</option>",
+        "<option value='Deluxe'>8000 - 12000</option><option value='Deluxe'>12000 - more</option>",
+        "<option value='Deluxe'>12000 - more</option>"
+    ];
+
+});
+
+// STICK
+
+var header = $("#main-content");
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll >= window.innerHeight) {
+        header.addClass("fixed");
+        $('#add').css('top','100px');
+    } else {
+        header.removeClass("fixed");
+        $('#add').css('top','50px');
+    }
+});

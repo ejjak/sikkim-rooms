@@ -36,7 +36,7 @@
 
 
                 </ul>
-                <span class="more"><a href="http://www.hotelrainbowgangtok.com" target="_blank">read more</a></span>
+                <span class="more"><a href="http://www.hotelrainbowgangtok.com" target="_blank">CHECK-IN</a></span>
                 <img src="{{ asset('img/2star.png') }}" alt="rating" class="star">
             </div>
         </div>
@@ -73,7 +73,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hillhotels.in" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hillhotels.in" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -110,7 +110,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.northadventuresikim.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.northadventuresikim.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/4star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -147,7 +147,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.akiguesthouse.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.akiguesthouse.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/4star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -184,7 +184,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -193,4 +193,17 @@
     <div class="col-lg-3 hidden-sm hidden-xs">
         {{ include(':default:advert.html.twig') }}
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            if($(window).width() <= 480) {
+                $('html, body').animate({
+                    scrollTop: $('#main-content').offset().top
+                }, 'slow');
+            }
+        });
+    </script>
 {% endblock %}

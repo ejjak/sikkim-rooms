@@ -175,7 +175,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-xs-6">&copy; 2017 Sikkim Rooms All Rights Reserved </div>
+                <div class="col-xs-6">&copy; 2017 Decroum LLP All Rights Reserved </div>
                 <div class="col-xs-6 text-right">
                 </div>
             </div>
@@ -191,30 +191,6 @@
     <script type="text/javascript" src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.forms.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $("#room").change(function() {
-                var val = $(this).val();
-                $("#price").html(options[val]);
-            });
-
-
-            var options = [
-//                "<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>",
-//                "<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>",
-//                "<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>",
-
-                "<option value='Single'>800 - 1500</option><option value='Double'>1500 - 3000</option>",
-                "<option value='Double'>1500 - 3000</option><option value='Deluxe'>3000 - 5000</option>",
-                "<option value='Deluxe'>3000 - 5000</option><option value='Deluxe'>5000 - 8000</option>",
-                "<option value='Deluxe'>5000 - 8000</option><option value='Deluxe'>8000 - 12000</option>",
-                "<option value='Deluxe'>8000 - 12000</option><option value='Deluxe'>12000 - more</option>",
-                "<option value='Deluxe'>12000 - more</option>"
-            ];
-
-        });
-    </script>
     <script type="text/javascript">
         $('#reservationform').submit(function(e) {
             document.location = $(this).find('[name="room"]').val();

@@ -2,32 +2,50 @@
             {% block carousel %}
                 <div id="owl-gallery" class="owl-carousel">
                     <div class="item grow">
-                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/1.jpg') }}" alt="" class="img-responsive"></a>
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/1.jpg') }}" alt=""
+                                                                  class="img-responsive"></a>
                         {#<h3>Standard<span>&#x20b9; 1500</span></h3>#}
                     </div>
                     <div class="item grow">
-                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/2.jpg') }}" alt="" class="img-responsive"></a>
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/2.jpg') }}" alt=""
+                                                                  class="img-responsive"></a>
                         {#<h3>Deluxe<span>&#x20b9; 3000</span></h3>#}
                     </div>
                     <div class="item grow">
-                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/3.jpg') }}" alt="" class="img-responsive"></a>
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/3.jpg') }}" alt=""
+                                                                  class="img-responsive"></a>
                         {#<h3>Super Deluxe<span>&#x20b9; 5000</span></h3>#}
                     </div>
                     <div class="item grow">
-                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/4.jpg') }}" alt="" class="img-responsive"></a>
+                        <a href="{{ path('package_form') }}"><img src="{{ asset('img/rooms/4.jpg') }}" alt=""
+                                                                  class="img-responsive"></a>
                         {#<h3>Executive<span>&#x20b9; 8000</span></h3>#}
                     </div>
                 </div>
             {% endblock %}
 {% block body %}
-    <div class="col-lg-12">
-        <div id="about">
-            {#<h2 class="lined-heading"><span>About Sikkim Rooms</span></h2>#}<br>
+    <h2 class="lined-heading"><span>What makes us special…</span></h2>
+    <div class="col-lg-4">
+        <div class="about">
+            <h3><span>First Hand Information</span></h3>
             <p>
-                <strong>SIKKIM ROOMS</strong> is created by the team behind Decorum LLP, an organization tasked with scouring the globe in search
-                of the ultimate hotels and hospitality experiences. We’ve combined first-hand knowledge of five-star hospitality
-                to a home stay service in a small village to create a groud-breaking guide to Sikkim’s most wonderful hotels and
-                hospitality experiences.
+                We've combined unrivalled first-hand information of five-star hospitality to a home stay service in a
+                small village to create this informative web portal.
+            </p>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="about">
+            <h3>Local Help</h3>
+            <p>We've a experienced and local support team to look after your pleasant stay in Sikkim
+            </p>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="about">
+            <h3>Bargain for your money</h3>
+            <p>We connect you directly to the front desk of hotel. This gives you the freedom to bargain and choose the
+                best package.
             </p>
         </div>
     </div>

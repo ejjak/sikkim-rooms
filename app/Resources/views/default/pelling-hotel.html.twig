@@ -38,7 +38,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hotelhimalayaglory.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hotelhimalayaglory.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -77,7 +77,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -116,7 +116,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/4star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -155,7 +155,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hotelheruka.jimdo.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hotelheruka.jimdo.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -194,7 +194,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/2star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -233,7 +233,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -272,7 +272,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.florethotel.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.florethotel.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -311,7 +311,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hotelgarudapelling.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hotelgarudapelling.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/4star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -350,7 +350,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/4star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -389,7 +389,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="#" target="_blank">read more</a></span>
+                    <span class="more"><a href="#" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -433,7 +433,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hotelredpalace.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hotelredpalace.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/2star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -479,7 +479,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hoteltakura.in" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hoteltakura.in" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -523,7 +523,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.hotelsonamchenpelling.com" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.hotelsonamchenpelling.com" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -567,7 +567,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.summitnewaregency.chobs.in" target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.summitnewaregency.chobs.in" target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -611,7 +611,7 @@
 
 
                     </ul>
-                    <span class="more"><a href="http://www.biswasgroupofhotels.com	 	 " target="_blank">read more</a></span>
+                    <span class="more"><a href="http://www.biswasgroupofhotels.com	 	 " target="_blank">CHECK-IN</a></span>
                     <img src="{{ asset('img/3star.png') }}" alt="rating" class="star">
                 </div>
             </div>
@@ -620,4 +620,17 @@
     <div class="col-lg-3 hidden-sm hidden-xs">
         {{ include(':default:advert.html.twig') }}
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            if($(window).width() <= 480) {
+                $('html, body').animate({
+                    scrollTop: $('#main-content').offset().top
+                }, 'slow');
+            }
+        });
+    </script>
 {% endblock %}
