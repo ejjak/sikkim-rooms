@@ -53,8 +53,8 @@
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="email" accesskey="E">Destination</label>
-                                    <select class="form-control" name="room" id="destination">
-                                        <option selected="selected" disabled="disabled">Select Destination</option>
+                                    <select required class="form-control" name="room" id="destination">
+                                        <option value="" selected="selected" disabled="disabled"> Select Destination</option>
                                         <option value="{{ path('hotel-listing') }}">Gangtok</option>
                                         <option value="{{ path('namchi-hotel') }}">Namchi</option>
                                         <option value="{{ path('pelling-hotel') }}">Pelling</option>
@@ -191,6 +191,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.forms.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/enscroll-0.6.1.min.js') }}"></script>
     <script type="text/javascript">
         $('#reservationform').submit(function(e) {
             document.location = $(this).find('[name="room"]').val();

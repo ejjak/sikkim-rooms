@@ -19,6 +19,7 @@ class PackageForm extends AbstractType
             ->add('email',EmailType::class)
             ->add('adult',TextType::class)
             ->add('minor',TextType::class)
+            ->add('hotel',TextType::class)
             ->add('nights',TextType::class)
             ->add('details',TextareaType::class)
         ;

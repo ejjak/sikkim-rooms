@@ -417,15 +417,23 @@ $(document).ready(function() {
 });
 
 // STICK
+//
+// var header = $("#main-content");
+// $(window).scroll(function() {
+//     var scroll = $(window).scrollTop();
+//     if (scroll >= window.innerHeight) {
+//         header.addClass("fixed");
+//         $('#add').css('top','100px');
+//     } else {
+//         header.removeClass("fixed");
+//         $('#add').css('top','50px');
+//     }
+// });
 
-var header = $("#main-content");
-$(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-    if (scroll >= window.innerHeight) {
-        header.addClass("fixed");
-        $('#add').css('top','100px');
-    } else {
-        header.removeClass("fixed");
-        $('#add').css('top','50px');
-    }
+//scroll bar
+
+$('#scrollbox').enscroll({
+    showOnHover: true,
+    verticalTrackClass: 'track3',
+    verticalHandleClass: 'handle3'
 });
