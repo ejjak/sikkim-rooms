@@ -901,14 +901,14 @@ aside .widget .news-content span a {
 
 #owl-gallery {
   .item {
-  margin: 0 5px;
-  position: relative;
+    margin: 0 5px;
+    position: relative;
     font-size: 16px;
     img{
       width: 100%;
       height: 190px;
     }
-}
+  }
 
   h3{
     width: 100%;
@@ -939,11 +939,14 @@ aside .widget .news-content span a {
 
 .about{
   line-height:24px;
-  border: 1px solid #e8e8e8;
+  border-right: 1px solid #ccc;
   min-height:220px;
   padding:30px;
   text-align: center;
-  background:#FFF;
+  .fa{
+    font-size:30px;
+    color:#5e5e5e;
+  }
 }
 
 .lined-heading {
@@ -991,7 +994,6 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
     color: #5e5e5e;
     .count{
       padding:5px 6px;
-      color: #78bbda;
     }
     img{
       width:16px;
@@ -1046,6 +1048,11 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
     padding:15px 30px;
     font-size:18px;
     font-weight: bold;
+    .fa{
+      color: #FFF;
+      padding: 0;
+      margin: 0 4px 0 0;
+    }
   }
   h3{
     padding: 0;
@@ -1080,21 +1087,21 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
 
   .more {
     a{
-    font-size: 11px;
-    color: #111;
-    border: 1px solid #e1e1e1;
-    padding:3px 15px;
-    position: absolute;
-    bottom:35px;
-    right:-3%;
-    border-radius:8px;
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
+      font-size: 11px;
+      color: #111;
+      border: 1px solid #e1e1e1;
+      padding:3px 15px;
+      position: absolute;
+      bottom:35px;
+      right:-3%;
+      border-radius:8px;
+      -webkit-border-radius:8px;
+      -moz-border-radius:8px;
       cursor: pointer;
 
       &:hover{ background: #78bbda;
         color: #FFF; border: 1px solid #fff;}
-  }
+    }
 
   }
 }
@@ -1121,20 +1128,6 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
     width: 29px;
     height: 26px;
   }
-}
-
-.adverts{
-  text-align:center;
-  border:1px solid #f0f0f0;
-  padding:5px;
-  margin-bottom: 20px;
-  background: #FFF;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-
 }
 
 .grow { transition: all .2s ease-in-out; }
@@ -1203,37 +1196,59 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
 
 .star{ position: absolute; top:15px; right:-30px;width: 124px !important; height:22px !important;}
 
-#scrollbox {
-  overflow: auto;
-  width: 103%;
-  height:600px;
-  padding: 0 15px 0 0;
+.no-border{border: none;}
+
+#deals{
+  text-transform: uppercase;
+  h4{
+    margin: 0;
+    padding: 0;
+    border-top:2px solid #ccc;
+    position: relative;
+    margin-bottom:25px;
+    span{
+      position: absolute;
+      top:-9px;
+      background: #f5f5f5;
+      padding: 0 10px 0 0;
+    }
+    strong{
+      color: red;
+    }
+  }
 }
 
-.track3 {
-  width: 10px;
-  background: rgba(0, 0, 0, 0);
-  margin-right: 2px;
-  border-radius: 10px;
-  -webkit-transition: background 250ms linear;
-  transition: background 250ms linear;
-}
-
-.track3:hover,
-.track3.dragging {
-  background: #d9d9d9; /* Browsers without rgba support */
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.handle3 {
-  width: 7px;
-  right: 0;
-  background: #999;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 7px;
-  -webkit-transition: width 250ms;
-  transition: width 250ms;
-}
+//#scrollbox {
+//  overflow: auto;
+//  width: 103%;
+//  height:600px;
+//  padding: 0 15px 0 0;
+//}
+//
+//.track3 {
+//  width: 10px;
+//  background: rgba(0, 0, 0, 0);
+//  margin-right: 2px;
+//  border-radius: 10px;
+//  -webkit-transition: background 250ms linear;
+//  transition: background 250ms linear;
+//}
+//
+//.track3:hover,
+//.track3.dragging {
+//  background: #d9d9d9; /* Browsers without rgba support */
+//  background: rgba(0, 0, 0, 0.15);
+//}
+//
+//.handle3 {
+//  width: 7px;
+//  right: 0;
+//  background: #999;
+//  background: rgba(0, 0, 0, 0.4);
+//  border-radius: 7px;
+//  -webkit-transition: width 250ms;
+//  transition: width 250ms;
+//}
 
 /* Footer
 -------------------------------------------------- */
@@ -1244,6 +1259,8 @@ footer {
   font-size: 12px;
   padding: 50px 0 0 0;
   margin-top: 100px;
+  z-index: 100;
+  position: relative;
 }
 footer a {
   color: #c1c1c1;

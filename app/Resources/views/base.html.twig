@@ -125,10 +125,11 @@
         </div>
     </section>
 </section>
-
 <section id="room-carousel">
     <div class="container">
         <div class="row">
+            {% block deals %}
+            {% endblock %}
             {% block carousel %}
             {% endblock %}
         </div>
@@ -146,7 +147,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-3">
-                <h4>Head Office:</h4>
+                <h4>Corporate Office:</h4>
                 <p>Decorum LLP,<br>
                     A 246, New Ashok Nagar,<br>
                     Delhi - 110096</p>
