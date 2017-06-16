@@ -937,6 +937,14 @@ aside .widget .news-content span a {
   height:194px;
 }
 
+#owl-add{
+
+  max-width:250px;
+  .item{
+    width:100%;
+  }
+}
+
 .about{
   line-height:24px;
   border-right: 1px solid #ccc;
@@ -963,7 +971,7 @@ h1.lined-heading:before, h2.lined-heading:before, h3.lined-heading:before, h4.li
   display: block;
   width: 100%;
   height: 1px;
-  border-top: 2px solid #ccc;
+  border-top: 1px solid #ccc;
   content: "";
 }
 h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-heading span, h5.lined-heading span, h6.lined-heading span {
@@ -1203,7 +1211,7 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
   h4{
     margin: 0;
     padding: 0;
-    border-top:2px solid #ccc;
+    border-top:1px solid #ccc;
     position: relative;
     margin-bottom:25px;
     span{

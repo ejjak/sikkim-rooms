@@ -34,6 +34,7 @@ jQuery(document).ready(function () {
 
     // Owl sliders
     if (jQuery().owlCarousel) {
+
         jQuery("#owl-gallery").owlCarousel({
             autoPlay: 3000,
             //Set AutoPlay to 3 seconds
@@ -43,20 +44,28 @@ jQuery(document).ready(function () {
             pagination: true
         });
 
-        jQuery("#owl-reviews").owlCarousel({
-            navigation: true,
-            // Show next and prev buttons
-            slideSpeed: 800,
-            paginationSpeed: 400,
-            singleItem: true,
-            pagination: false,
-            navigationText: ['<i class="fa fa-angle-left fa-3x"></i>', '<i class="fa fa-angle-right fa-3x"></i>'],
-            // "singleItem:true" is a shortcut for:
-            // items : 1, 
-            // itemsDesktop : false,
-            // itemsDesktopSmall : false,
-            // itemsTablet: false,
-            // itemsMobile : false
+        jQuery("#owl-add ").each(function(i,elm){
+            var delay = i*3000; // generate the delay somehow as you need
+            setTimeout((function(){
+                var $elm = $(elm);
+                return function(){
+                    $elm.owlCarousel({
+                        loop: true,
+                        navigation : false,
+                        autoPlay:true,
+                        autoplayTimeout: 500,
+                        autoplayHoverPause: true,
+                        touchDrag: true,
+                        dots: true,
+                        slideSpeed : 300,
+                        paginationSpeed :1800,
+                        singleItem: true,
+                        pagination: false,
+                        rewindNav : true,
+                        rewindSpeed: 0
+                    });
+                }
+            })(),delay);
         });
 
         jQuery("#owl-standard").owlCarousel({
