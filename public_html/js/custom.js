@@ -50,10 +50,12 @@ jQuery(document).ready(function () {
                 var $elm = $(elm);
                 return function(){
                     $elm.owlCarousel({
+                        animateOut: 'fadeOut',
+                        animatein: 'fadeIn',
                         loop: true,
                         navigation : false,
-                        autoPlay:true,
-                        autoplayTimeout: 500,
+                        autoPlay:25000,
+                        autoplayTimeout:16000,
                         autoplayHoverPause: true,
                         touchDrag: true,
                         dots: true,
@@ -62,7 +64,7 @@ jQuery(document).ready(function () {
                         singleItem: true,
                         pagination: false,
                         rewindNav : true,
-                        rewindSpeed: 0
+                        rewindSpeed: 0,
                     });
                 }
             })(),delay);
