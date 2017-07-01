@@ -3,8 +3,10 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
@@ -120,6 +122,177 @@ class DefaultController extends Controller
 
 
         return $mailer->send($message);
+    }
+
+    /**
+     * Lists all hotel entities.
+     *
+     * @Route("/hotel_listing", name="hotel_list")
+     * @Method("GET")
+     */
+    public function HotelListingAction(Request $request)
+    {
+        $_SESSION = $request->getSession();
+        $uid = $_SESSION->getId();
+        $conn = $this->get('database_connection');
+        $em = $this->getDoctrine()->getManager();
+        $hotels = $em->getRepository('AppBundle:Hotel')->findAll();
+//        $query = $conn->fetchAll('SELECT * FROM Hotel LEFT JOIN room_details ON Hotel.id = room_details.hotel_id');
+        $response = array();
+        foreach($hotels as $row)
+        {
+            $id=$row->getId();
+            $query = $conn->fetchAssoc('SELECT sum(`average`) as `average`, sum(`good`) as `good`, sum(`excellent`) as `excellent` FROM Review where hotel_id=?', array($id));
+//            dump($query);die;
+            if($query['average'] == "")
+                $query['average'] = 0;
+
+            if($query['good'] == "")
+                $query['good'] = 0;
+
+            if($query['excellent'] == "")
+                $query['excellent'] = 0;
+
+            $averageCount = $query['average'];
+            $goodCount = $query['good'];
+            $excellentCount = $query['excellent'];
+
+            $likeORunlike = $conn->fetchAssoc('SELECT * FROM Review where hotel_id=? and uid=?', array($id,$uid));
+            if($likeORunlike > 0)// check if alredy liked or not condition
+            {
+
+                $average = '';
+                $good = '';
+                $excellent = '';
+                $disable_average = '';
+                $disable_good = '';
+                $disable_excellent = '';
+                if($likeORunlike['average'] == 1) // if alredy liked then disable like button
+                {
+                    $average = 'disabled="disabled"';
+                    $disable_good = "button_disable";
+                    $disable_excellent = "button_disable";
+                }
+                elseif($likeORunlike['good'] == 1) // if alredy dislike the disable unlike button
+                {
+                    $good = 'disabled="disabled"';
+                    $disable_average = "button_disable";
+                    $disable_excellent = "button_disable";
+                }
+                elseif($likeORunlike['excellent'] == 1) // if alredy dislike the disable unlike button
+                {
+                    $excellent = 'disabled="disabled"';
+                    $disable_average = "button_disable";
+                    $disable_good = "button_disable";
+                }
+
+                $likeButton = '
+            <input '.$average.' type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like '.$disable_average.'" id="linkeBtn_'.$id.'" />
+            <input '.$good.' type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike '.$disable_good.'" id="unlinkeBtn_'.$id.'" />
+            <input '.$excellent.' type="button" value="'.$excellentCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Excellent" class="button_excellent '.$disable_excellent.'" id="excellentBtn_'.$id.'" />
+            ';
+            }
+            else{ //not liked and disliked product
+                $likeButton = '
+            <input  type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like" id="linkeBtn_'.$id.'" />
+            <input  type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike" id="unlinkeBtn_'.$id.'" />
+            <input  type="button" value="'.$excellentCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Excellent" class="button_excellent" id="excellentBtn_'.$id.'" />
+            ';
+            }
+
+            $response[] = array('title' => $row->getTitle(), 'likebutton' => $likeButton);
+        }
+        return $this->render(':default:hotel-listing.html.twig', array(
+            'res' => $response,
+        ));
+    }
+
+    /**
+     * Lists all hotel entities.
+     *
+     * @Route("/review", name="hotel_review")
+     * @Method({"GET", "POST"})
+     */
+    public function HotelReviewAction(Request $request)
+    {
+        if(session_id() == '') {
+            session_start();
+        }
+        $_SESSION = $request->getSession();
+        $uid = $_SESSION->getId();
+        $conn = $this->get('database_connection');
+        if($_POST)  // AJAX request received section
+        {
+            $pid    = $_POST['pid'];
+            $op = $_POST['op'];
+            if($op == "average")
+            {
+                $gofor = "average";
+            }
+            elseif($op == "good")
+            {
+                $gofor = "good";
+            }
+            elseif($op == "excellent")
+            {
+                $gofor = "excellent";
+            }
+            else
+            {
+                exit;
+            }
+//            $query = mysqli_query($connection,"SELECT a from BBlineHotelBundle:Reviews  a WHERE a.hotel='".$pid."' and a.uid='".$uid."'");
+//            $query = $em->createQuery("SELECT a FROM BBlineHotelBundle:Reviews a where a.hotel='" .$pid . "' and a.uid='".$uid."'");
+//            $itemArray = $query->getOneOrNullResult();
+//            $sql = "SELECT * FROM Reviews where hotel_id= ? and uid= ?";
+//            $stmt = $conn->prepare($sql);
+//            $stmt->bindValue(1, $pid);
+//            $stmt->bindValue(2,$uid);
+//            $stmt->execute();
+//            $row = $stmt->fetchAll();
+            $row = $conn->fetchColumn('SELECT * FROM Review where hotel_id=? and uid=?', array($pid,$uid));
+            if($row > 0)// check if alredy liked or not condition
+            {
+                $likeORunlike = $conn->fetchAll('SELECT * FROM Review where hotel_id=? and uid=?', array($pid,$uid));
+                $average='';
+                $good='';
+                $excellent='';
+                foreach($likeORunlike as $val){
+                    $average = $val['average'];
+                    $good= $val['good'];
+                    $excellent= $val['excellent'];
+                }
+//                dump($unlike);die;
+                if($average == 0)  // if alredy liked set unlike for alredy liked product
+                {
+
+                    $conn->executeUpdate('update `Review` set `average` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
+                    echo 2;
+
+                }
+                elseif($good == 0) // if alredy unliked set like for alredy unliked product
+                {
+
+                    $conn->executeUpdate('update `Review` set `good` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
+                    echo 2;
+//                    $conn->update('Reviews', array('unlike'=>'0', 'like'=>'1'), array('id'=>$likeORunlike[0]['id']), array('uid'=>$uid));
+                }
+                elseif($excellent == 0)
+                {
+                    $conn->executeUpdate('update `Review` set `excellent` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
+                    echo 2;
+                }
+            }
+            else  // New Like
+            {
+                $conn->insert('Review', array('hotel_id' => $pid, 'uid' => $uid, $gofor => '1'));
+                echo 1;
+            }
+            exit;
+        }
+        return $this->render(':default:review.html.twig', array(
+
+        ));
     }
 
 }
