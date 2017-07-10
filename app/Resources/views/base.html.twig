@@ -45,81 +45,82 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-inline reservation-horizontal clearfix" role="form" method="post" action=""
-                          name="reservationform" id="reservationform">
-                        <!-- Error message -->
-                        <div id="message"></div>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label for="email" accesskey="E">Destination</label>
-                                    <select required class="form-control" name="room" id="destination">
-                                        <option value="" selected="selected" disabled="disabled"> Select Destination</option>
-                                        <option value="{{ path('hotel-listing') }}">Gangtok</option>
-                                        <option value="{{ path('namchi-hotel') }}">Namchi</option>
-                                        <option value="{{ path('pelling-hotel') }}">Pelling</option>
-                                        <option value="{{ path('lachung-hotel') }}">Lachung</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label for="checkin">Check-in</label>
+                    {{ render(controller('AppBundle:Default:Destination')) }}
+                    {#<form class="form-inline reservation-horizontal clearfix" role="form" method="post" action=""#}
+                          {#name="reservationform" id="reservationform">#}
+                        {#<!-- Error message -->#}
+                        {#<div id="message"></div>#}
+                        {#<div class="row">#}
+                            {#<div class="col-sm-2">#}
+                                {#<div class="form-group">#}
+                                    {#<label for="email" accesskey="E">Destination</label>#}
+                                    {#<select required class="form-control" name="room" id="destination">#}
+                                        {#<option value="" selected="selected" disabled="disabled"> Select Destination</option>#}
+                                        {#<option value="{{ path('hotel-listing') }}">Gangtok</option>#}
+                                        {#<option value="{{ path('namchi-hotel') }}">Namchi</option>#}
+                                        {#<option value="{{ path('pelling-hotel') }}">Pelling</option>#}
+                                        {#<option value="{{ path('lachung-hotel') }}">Lachung</option>#}
+                                    {#</select>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="col-sm-2">#}
+                                {#<div class="form-group">#}
+                                    {#<label for="checkin">Check-in</label>#}
                                     {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
                                          {#data-trigger="hover" data-placement="right"#}
                                          {#data-content="Check-In is from 11:00"><i class="fa fa-info-circle fa-lg"> </i>#}
                                     {#</div>#}
-                                    <i class="fa fa-calendar infield"></i>
-                                    <input name="checkin" type="text" id="checkin" value="" class="form-control"
-                                           placeholder="Check-in"/>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label for="checkout">Check-out</label>
+                                    {#<i class="fa fa-calendar infield"></i>#}
+                                    {#<input name="checkin" type="text" id="checkin" value="" class="form-control"#}
+                                           {#placeholder="Check-in"/>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="col-sm-2">#}
+                                {#<div class="form-group">#}
+                                    {#<label for="checkout">Check-out</label>#}
                                     {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
                                          {#data-trigger="hover" data-placement="right"#}
                                          {#data-content="Check-out is from 12:00"><i class="fa fa-info-circle fa-lg"> </i>#}
                                     {#</div>#}
-                                    <i class="fa fa-calendar infield"></i>
-                                    <input name="checkout" type="text" id="checkout" value="" class="form-control"
-                                           placeholder="Check-out"/>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label for="room">Room Type</label>
+                                    {#<i class="fa fa-calendar infield"></i>#}
+                                    {#<input name="checkout" type="text" id="checkout" value="" class="form-control"#}
+                                           {#placeholder="Check-out"/>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="col-sm-2">#}
+                                {#<div class="form-group">#}
+                                    {#<label for="room">Room Type</label>#}
                                     {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
                                          {#data-trigger="hover" data-placement="right"#}
                                          {#data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i#}
                                                 {#class="fa fa-info-circle fa-lg"> </i></div>#}
-                                    <select class="form-control" name="room" id="room">
-                                        <option selected="selected" disabled="disabled">Select Room</option>
-                                        <option value="0">Standard</option>
-                                        <option value="1">Deluxe</option>
-                                        <option value="2">Super Deluxe</option>
-                                        <option value="3">Executive</option>
-                                        <option value="4">Luxury</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label for="room">Price Range</label>
+                                    {#<select class="form-control" name="room" id="room">#}
+                                        {#<option selected="selected" disabled="disabled">Select Room</option>#}
+                                        {#<option value="0">Standard</option>#}
+                                        {#<option value="1">Deluxe</option>#}
+                                        {#<option value="2">Super Deluxe</option>#}
+                                        {#<option value="3">Executive</option>#}
+                                        {#<option value="4">Luxury</option>#}
+                                    {#</select>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="col-sm-2">#}
+                                {#<div class="form-group">#}
+                                    {#<label for="room">Price Range</label>#}
                                     {#<div class="popover-icon" data-container="body" data-toggle="popover"#}
                                          {#data-trigger="hover" data-placement="right"#}
                                          {#data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i#}
                                                 {#class="fa fa-info-circle fa-lg"> </i></div>#}
-                                    <select class="form-control" name="room" id="price">
-                                        <option selected="selected" disabled="disabled">Select Price</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-block">Find Hotels</button>
-                            </div>
-                        </div>
-                    </form>
+                                    {#<select class="form-control" name="room" id="price">#}
+                                        {#<option selected="selected" disabled="disabled">Select Price</option>#}
+                                    {#</select>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="col-sm-2">#}
+                                {#<button type="submit" class="btn btn-primary btn-block">Find Hotels</button>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</form>#}
                 </div>
             </div>
         </div>

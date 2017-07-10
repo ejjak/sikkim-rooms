@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Milestones list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Path</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for milestone in milestones %}
+            <tr>
+                <td><a href="{{ path('milestone_show', { 'id': milestone.id }) }}">{{ milestone.id }}</a></td>
+                <td>{{ milestone.title }}</td>
+                <td>{{ milestone.path }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('milestone_show', { 'id': milestone.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('milestone_edit', { 'id': milestone.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('milestone_new') }}">Create a new milestone</a>
+        </li>
+    </ul>
+{% endblock %}

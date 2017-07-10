@@ -54,7 +54,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="amenities", type="string", length=255)
+     * @ORM\Column(name="amenities", type="json_array", length=255)
      */
     private $amenities;
 
@@ -87,9 +87,9 @@ class Hotel
     private $priceRangeB;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="star", type="string", length=255)
+     * @ORM\Column(name="star", type="integer", length=255)
      */
     private $star;
 
@@ -361,7 +361,7 @@ class Hotel
     /**
      * Get star
      *
-     * @return string
+     * @return int
      */
     public function getStar()
     {
@@ -435,25 +435,35 @@ class Hotel
     }
 
     /**
-     * Add location
+     * Add Destination
      *
      * @param \AppBundle\Entity\Destination $destination
      * @return Hotel
      */
-    public function addLocation(Destination $destination)
+    public function addDestination(Destination $destination)
     {
         $this->destination[] = $destination;
         return $this;
     }
 
     /**
-     * Remove location
+     * Remove Destination
      *
      * @param \AppBundle\Entity\Destination $destination
      */
-    public function removeLocation(Destination $destination)
+    public function removeDestination(Destination $destination)
     {
         $this->destination->removeElement($destination);
+    }
+
+    /**
+     * Get destination
+     *
+     * @return \AppBundle\Entity\Destination
+     */
+    public function getDestination()
+    {
+        return $this->destination;
     }
 
     /**
@@ -470,15 +480,7 @@ class Hotel
         return $this;
     }
 
-    /**
-     * Get destination
-     *
-     * @return \AppBundle\Entity\Destination
-     */
-    public function getDestination()
-    {
-        return $this->destination;
-    }
+
     /**
      * @var date $created
      *

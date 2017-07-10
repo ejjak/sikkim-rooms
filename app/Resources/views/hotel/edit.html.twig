@@ -1,0 +1,288 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {#{{ form_start(edit_form) }}#}
+        {#{{ form_widget(edit_form) }}#}
+        {#<input type="submit" value="Edit" />#}
+    {#{{ form_end(edit_form) }}#}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <table width="100%">
+
+                <tr>
+                    <th><h5>Edit Hotels</h5></th>
+                </tr>
+
+            </table>
+        </div>
+        {{ form_start(edit_form) }}
+        <div id="files" class="form-wrapper" data-prototype="{% filter escape %}{% include 'hotel/Prototype/files.html.twig' with {'val': edit_form.milestone.vars.prototype} %}{% endfilter %}" cellspacing="15">
+            {#<div>#}
+            {#<h5>#}
+            {#{{ form_label(form.title)}}#}
+            {#</h5>#}
+            {#<p>#}
+            {#{{ form_widget(form.title, {'attr':{'class': 'form-control'}}) }}#}
+            {#</p>#}
+            {#</div>#}
+            <div class="panel-body">
+
+                <div class="form col-lg-6 no-gutter">
+                    <div class="form-group">
+                        <div class="col-lg-3">Destination</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.destination, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.destination) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Hotel Name</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.title, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.title) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Star</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.star, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.star) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Hotel Image</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.imageurl, {'attr':{'class': ''}}) }}
+                            {{ form_errors(edit_form.imageurl) }}
+                            {#<input type="file" name="appbundle_hotel[imageurl]" id="appbundle_hotel_imageurl" class="file">#}
+                            {#<div class="input-group col-xs-12">#}
+                                {#<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>#}
+                                {#<input type="text" class="form-control input-lg" disabled placeholder="Upload Image">#}
+                                {#<span class="input-group-btn">#}
+        {#<button class="browse btn btn-success input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>#}
+      {#</span>#}
+                            {#</div>#}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Email</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.email, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.email) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Phone</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.phone, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.phone) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Address</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.address, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.address) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Website</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.website, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.website) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Amenities</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.amenities, {'attr':{'class': ''}}) }}
+                            {{ form_errors(edit_form.amenities) }}
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Google Map</div>
+                        <div class="col-lg-8">
+                            {{ form_widget(edit_form.gmap, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.gmap) }}
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Price Range</div>
+                        <div class="col-lg-3">
+                            {{ form_widget(edit_form.priceRangeA, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.priceRangeA) }}
+                        </div>
+                        <div class="col-lg-1">To</div>
+                        <div class="col-lg-3">
+                            {{ form_widget(edit_form.priceRangeB, {'attr':{'class': 'form-control'}}) }}
+                            {{ form_errors(edit_form.priceRangeB) }}
+                        </div>
+                    </div>
+                    {#<input type="submit" value="Create" class="add_block black x-small btn btn-sm btn-primary" />#}
+                    <div class="clearfix"></div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-3">Milestones</div>
+                        <div class="files col-lg-8">
+                            <ul class="clearfix tags">
+                                {% for i in edit_form.milestone %}
+                                    <li style="border: 1px solid #dbdbdb; padding:10px; height: 100%; display: block; overflow: hidden; position: relative">
+                                        <div class="form-group">
+                                            <div>{{ loop.index }}</div>
+                                            <div class="col-lg-6">
+                                                {{ form_widget(i.title, {'attr':{'class': 'form-control', 'Placeholder': 'Title'}}) }}
+                                            </div>
+                                            <div class="col-lg-1">
+                                                {{ form_widget(i.file, {'attr':{'class': 'file1'}}) }}
+                                                {#<input type="file" name="appbundle_hotel[imageurl]" id="appbundle_hotel_imageurl" class="file">#}
+                                                {#<div class="input-group col-xs-12">#}
+                                                {#<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>#}
+                                                {#<input type="text" class="form-control input-lg" disabled placeholder="Upload Image">#}
+                                                {#<span class="input-group-btn">#}
+                                                {#<button class="browse btn btn-black input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>#}
+                                                {#</span>#}
+                                                {#</div>#}
+                                            </div>
+                                            {#{{ form_label(val.title) }}#}
+                                            {#{{ form_errors(val.title) }}#}
+                                            {#{{ form_widget(val.title) }}#}
+                                        </div>
+                                    </li>
+                                    {#<li>#}
+                                        {#<a href="#" class="close">Close Block</a>#}
+                                        {#<h6> {{ loop.index }}</h6>#}
+                                        {#{{ form_widget(i.file) }}#}
+                                        {#{{ form_widget(i.title) }}#}
+
+                                    {#</li>#}
+                                {% endfor %}
+                            </ul>
+                            <button name="files" class="add_block btn-sm"  id="1"><i class="glyphicon glyphicon-plus-sign"></i> Add Milestones</button>
+                        </div>
+                    </div></div>
+
+                <div class="clearfix"></div>
+                <br>
+                <div class="col-lg-4">
+                    <div class="col-lg-2">
+                    <input type="submit" value="Edit" class="black x-small btn btn-sm btn-black" />
+                    </div>
+                    {{ form_end(edit_form) }}
+                    <div class="col-lg-2">
+                        {{ form_start(delete_form) }}
+                        <input type="submit" class="black x-small btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?');" value="Delete">
+                        {{ form_end(delete_form) }}
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <br>
+                    <a href="{{ path('hotel_index') }}" class="btn-block"><i class="fa fa-reply"></i> Back to the list</a>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        {#<tr>#}
+        {#<td>{{ form(form) }}</td>#}
+        {#</tr>#}
+    </div>
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script>
+        function addBlockForm($collectionHolder, grid, that) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+            // get the new index
+            var index = $collectionHolder.data('index');
+            console.log($collectionHolder);
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+            newForm = newForm.replace(/__val__/g, index+1);
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            switch(grid){
+                case '1' : that.parent().find('ul').append(newForm);
+                    removeBlock(grid);
+                    break;
+                    //
+                    //default : // Display the form in the page in an li, before the "Add a tag" link li
+                    //    var $newBlock = $('<div class="wrapper-inner float"></div>').append(newForm);
+                    //    $collectionHolder.append($newBlock);
+            }
+        }
+
+        function removeBlock(grid){
+            switch(grid) {
+                case '1' :
+                    $('.remove_block').on('click', function (e) {
+                        e.preventDefault();
+                        $(this).parent().remove();
+                    });
+                    break;
+            }
+        }
+
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $('<a href="#" class="remove_block new"><i class="glyphicon glyphicon-remove-circle"></i></a>');
+            $tagFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $tagFormLi.remove();
+            });
+        }
+
+        $(document).ready(function() {
+            var collectionHolder,
+                    grid ;
+
+            // add a delete link to all of the existing tag form li elements
+            $('.form-wrapper').find('.files li').each(function() {
+                addTagFormDeleteLink($(this));
+            });
+
+            $('.add_block').on('click', function(e) {
+                e.preventDefault();
+                // Get the fieldset that holds the collection of blocks
+                collectionHolder = $('#' + this.name);
+
+                grid = $(this).attr('id');
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+
+                collectionHolder.data('index', collectionHolder.find('.files ul li').length);
+                // add a new tag form (see next code block)
+                addBlockForm(collectionHolder, grid, $(this));
+            });
+
+        });
+    </script>
+{% endblock %}

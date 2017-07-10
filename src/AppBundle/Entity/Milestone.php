@@ -135,14 +135,14 @@ class Milestone
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../../public_html/'.$this->getUploadDir();
+        return __DIR__.'/../../../public_html/'.$this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/milestones';
+        return 'uploads/milestones/';
     }
 
     /**

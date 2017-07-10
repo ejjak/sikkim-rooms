@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Destination;
+use AppBundle\Entity\Hotel;
 
 /**
  * HotelRepository
@@ -10,4 +12,29 @@ namespace AppBundle\Repository;
  */
 class HotelRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findHotelsAction($destination)
+    {
+        $em=$this->getEntityManager();
+        $hotel = $em->createQuery("SELECT h FROM AppBundle:Hotel h LEFT JOIN AppBundle:Destination d with h.destination = d.id WHERE d.destinationName = :destination")
+        ->setParameter('destination', $destination);
+        $result = $hotel->getResult();
+        return $result;
+    }
+
+    public function findDestinationAction()
+    {
+        $em = $this->getEntityManager();
+        $destinatonQuery = $em->createQuery('SELECT h FROM AppBundle:Destination h');
+        $destinations = $destinatonQuery->getResult();
+        foreach ($destinations as $destination)
+        {
+            if($destination instanceof Destination){
+                $details[] = array(
+                    'destinatonName' => $destination->getDestinationName()
+                );
+            }
+        }
+        return $details;
+    }
 }

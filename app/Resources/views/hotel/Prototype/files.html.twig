@@ -1,0 +1,30 @@
+<li style="border: 1px solid #dbdbdb; padding:10px; height: 100%; display: block; overflow: hidden; position: relative">
+        <div class="form-group">
+
+            <div>__val__</div>
+            <div class="col-lg-6">
+                {{ form_widget(val.title, {'attr':{'class': 'form-control', 'Placeholder': 'Title'}}) }}
+                {{ form_errors(val.title) }}
+            </div>
+            <div class="col-lg-1">
+                {{ form_widget(val.file, {'attr':{'class': 'file1'}}) }}
+                {{ form_errors(val.file) }}
+                {#<input type="file" name="appbundle_hotel[imageurl]" id="appbundle_hotel_imageurl" class="file">#}
+                {#<div class="input-group col-xs-12">#}
+                    {#<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>#}
+                    {#<input type="text" class="form-control input-lg" disabled placeholder="Upload Image">#}
+                    {#<span class="input-group-btn">#}
+        {#<button class="browse btn btn-black input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>#}
+      {#</span>#}
+            {#</div>#}
+        </div>
+        {#{{ form_label(val.title) }}#}
+        {#{{ form_errors(val.title) }}#}
+        {#{{ form_widget(val.title) }}#}
+    </div>
+    <a href="#" class="remove_block new"><i class="glyphicon glyphicon-remove-circle"></i></a>
+
+</li>
+
+<div class="clearfix"></div>
+<br>

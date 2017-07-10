@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Hotel;
+use AppBundle\Entity\Milestone;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -19,6 +21,14 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
+    }
+
+    /**
+     * @Route("/admin", name="administrator")
+     */
+    public function adminAction()
+    {
+        return $this->render(':default:admin-welcome.html.twig');
     }
 
     /**
@@ -127,20 +137,36 @@ class DefaultController extends Controller
     /**
      * Lists all hotel entities.
      *
-     * @Route("/hotel_listing", name="hotel_list")
+     * @Route("/hotels", name="hotels")
      * @Method("GET")
      */
-    public function HotelListingAction(Request $request)
+    public function DestinationAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $destination = $em->getRepository('AppBundle:Hotel')->findDestinationAction();
+        return $this->render(':default:search-form.html.twig', array(
+            'destination' => $destination
+        ));
+    }
+
+    /**
+     * Lists all hotel entities.
+     *
+     * @Route("/hotel_listing/{destination}", name="hotel_list")
+     * @Method("GET")
+     */
+    public function HotelListingAction($destination,Request $request)
     {
         $_SESSION = $request->getSession();
         $uid = $_SESSION->getId();
         $conn = $this->get('database_connection');
         $em = $this->getDoctrine()->getManager();
-        $hotels = $em->getRepository('AppBundle:Hotel')->findAll();
-//        $query = $conn->fetchAll('SELECT * FROM Hotel LEFT JOIN room_details ON Hotel.id = room_details.hotel_id');
+        $hotels = $em->getRepository('AppBundle:Hotel')->findHotelsAction($destination);
+//        dump($hotels);die;
         $response = array();
         foreach($hotels as $row)
         {
+            if($row instanceof  Hotel){
             $id=$row->getId();
             $query = $conn->fetchAssoc('SELECT sum(`average`) as `average`, sum(`good`) as `good`, sum(`excellent`) as `excellent` FROM Review where hotel_id=?', array($id));
 //            dump($query);die;
@@ -200,7 +226,32 @@ class DefaultController extends Controller
             ';
             }
 
-            $response[] = array('title' => $row->getTitle(), 'likebutton' => $likeButton);
+            $milestone = $row->getMilestone();
+                $detail = array();
+            foreach ($milestone as $val){
+                if($val instanceof Milestone){
+                    $detail[] = array(
+                        'mtitle'=>$val->getTitle(),
+                        'path' =>$val->getPath()
+                    );
+                }
+            }
+
+            $response[] = array(
+                'title' => $row->getTitle(),
+                'address' =>$row->getAddress(),
+                'email' =>$row->getEmail(),
+                'phone' => $row->getPhone(),
+                'amenities'=>$row->getAmenities(),
+                'maplink' => $row->getGmap(),
+                'website' => $row->getWebsite(),
+                'star' => $row->getStar(),
+                'image' => $row->getImageurl(),
+                'rangeA' => $row->getPriceRangeA(),
+                'rangeB' => $row->getPriceRangeB(),
+                'detail' => $detail,
+                'likebutton' => $likeButton);
+            }
         }
         return $this->render(':default:hotel-listing.html.twig', array(
             'res' => $response,
@@ -262,26 +313,48 @@ class DefaultController extends Controller
                     $good= $val['good'];
                     $excellent= $val['excellent'];
                 }
-//                dump($unlike);die;
-                if($average == 0)  // if alredy liked set unlike for alredy liked product
+                if($_POST)
                 {
+                    if($op == 'average')  // if alredy liked set unlike for alredy liked product
+                    {
 
-                    $conn->executeUpdate('update `Review` set `average` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
-                    echo 2;
+                        $conn->executeUpdate('update `Review` set `average` = ?, `good` = ?, `excellent` = ? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
+                        echo 2;
 
-                }
-                elseif($good == 0) // if alredy unliked set like for alredy unliked product
-                {
+                    }
+                    elseif($op == 'good') // if alredy unliked set like for alredy unliked product
+                    {
 
-                    $conn->executeUpdate('update `Review` set `good` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
-                    echo 2;
+                        $conn->executeUpdate('update `Review` set `good` = ?, `average`= ?, `excellent` = ? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
+                        echo 2;
 //                    $conn->update('Reviews', array('unlike'=>'0', 'like'=>'1'), array('id'=>$likeORunlike[0]['id']), array('uid'=>$uid));
+                    }
+                    elseif($op == 'excellent')
+                    {
+                        $conn->executeUpdate('update `Review` set `excellent` = ?, `good` = ?, `average` =? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
+                        echo 2;
+                    }
                 }
-                elseif($excellent == 0)
-                {
-                    $conn->executeUpdate('update `Review` set `excellent` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
-                    echo 2;
-                }
+//                dump($unlike);die;
+//                if($average == 0)  // if alredy liked set unlike for alredy liked product
+//                {
+//
+//                    $conn->executeUpdate('update `Review` set `average` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
+//                    echo 2;
+//
+//                }
+//                elseif($good == 0) // if alredy unliked set like for alredy unliked product
+//                {
+//
+//                    $conn->executeUpdate('update `Review` set `good` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
+//                    echo 2;
+////                    $conn->update('Reviews', array('unlike'=>'0', 'like'=>'1'), array('id'=>$likeORunlike[0]['id']), array('uid'=>$uid));
+//                }
+//                elseif($excellent == 0)
+//                {
+//                    $conn->executeUpdate('update `Review` set `excellent` = ? where id = ? and uid = ?', array(1,$val['id'], $uid));
+//                    echo 2;
+//                }
             }
             else  // New Like
             {

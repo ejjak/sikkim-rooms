@@ -1,0 +1,56 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Hotel list</h3>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Pic</th>
+                <th>Hotel</th>
+                <th>Location</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Star</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td width="20px"><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ loop.index }}</a></td>
+                <td><img src="{{ asset('uploads/hotels/'~ hotel.imageurl ) }}" height="50" width="50"/></td>
+                <td>{{ hotel.title }}</td>
+                <td>{{ hotel.destination }}</td>
+                <td>{{ hotel.email }}</td>
+                <td>{{ hotel.phone }}</td>
+                <td>{{ hotel.website }}</td>
+                <td>{{ hotel.priceRangeA }}</td>
+                <td>{{ hotel.priceRangeB }}</td>
+                <td>{{ hotel.star }}</td>
+                <td>
+                    <ul>
+                        {#<li>#}
+                            {#<a href="{{ path('hotel_show', { 'id': hotel.id }) }}">show</a>#}
+                        {#</li>#}
+                        <li>
+                            <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}"><i class="fa fa-pencil"></i> edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+        </div>
+    </div>
+{% endblock %}

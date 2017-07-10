@@ -1,0 +1,50 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+{{form_start(form, {'method': 'POST', 'attr':{'class': 'register'}})}}
+
+    <div class="control-group">
+        {{ form_label(form.username ) }}
+        <div class="controls">
+            {{ form_widget(form.username, {'attr':{'class': 'form-control input-lg'}}) }}
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+        </div>
+        {{ form_errors(form.username) }}
+    </div>
+
+<div class="control-group">
+    {{ form_label(form.email) }}
+    <div class="controls">
+        {{ form_widget(form.email, {'attr':{'class': 'form-control input-lg'}}) }}
+        <p class="help-block">Please provide your E-mail</p>
+    </div>
+    {{ form_errors(form.email) }}
+</div>
+<div class="control-group">
+        {{ form_label(form.plainPassword.first) }}
+    <div class="controls">
+        {{ form_widget(form.plainPassword.first, {'attr':{'class': 'form-control input-lg'}}) }}
+        <p class="help-block">Password should be at least 6 characters</p>
+    </div>
+    {{ form_errors(form.plainPassword.first) }}
+</div>
+<div class="control-group">
+        {{ form_label(form.plainPassword.second) }}
+    <div class="controls">
+        {{ form_widget(form.plainPassword.second, {'attr':{'class': 'form-control input-lg'}}) }}
+        <p class="help-block">Please confirm password</p>
+    </div>
+    {{ form_errors(form.plainPassword.second) }}
+</div>
+<div class="control-group">
+    <div class="controls">
+    <button class="btn btn-success">
+        {{ 'registration.submit'|trans }}
+    </button>
+        </div>
+</div>
+{{ form_end(form) }}
+        </div>
+    </div>
+</div>

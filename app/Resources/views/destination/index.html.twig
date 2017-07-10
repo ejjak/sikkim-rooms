@@ -1,0 +1,34 @@
+{% extends '::admin.html.twig' %}
+
+{% block body %}
+    <h1>Destinations list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Destinationname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for destination in destinations %}
+            <tr>
+                <td><a href="{{ path('destination_show', { 'id': destination.id }) }}">{{ destination.id }}</a></td>
+                <td>{{ destination.destinationName }}</td>
+                <td>
+                    <ul>
+                        {#<li>#}
+                            {#<a href="{{ path('destination_show', { 'id': destination.id }) }}">show</a>#}
+                        {#</li>#}
+                        <li>
+                            <a href="{{ path('destination_edit', { 'id': destination.id }) }}"><i class="fa fa-pencil"></i> edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

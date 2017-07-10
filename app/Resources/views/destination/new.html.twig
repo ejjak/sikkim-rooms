@@ -1,0 +1,32 @@
+{% extends '::admin.html.twig' %}
+
+{% block body %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <table width="100%">
+
+            <tr>
+                <th><h5>Add Destination</h5></th>
+            </tr>
+
+        </table>
+    </div>
+    {{ form_start(form) }}
+    <div class="panel-body">
+        <div class="form col-lg-6 no-gutter">
+            <div class="form-group">
+                <div class="col-lg-3">Destination</div>
+                <div class="col-lg-8">
+                    {{ form_widget(form.destinationName,{'attr':{'class': 'form-control'}}) }}
+                    {{ form_errors(form.destinationName) }}
+                </div>
+            </div>
+            </div>
+        <input type="submit" value="Create" class="black x-small btn btn-sm btn-danger"/>
+        <div class="clearfix"></div>
+        <br>
+        <a href="{{ path('destination_index') }}" class="btn-block"><i class="fa fa-reply"></i> Back to the list</a>
+        </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

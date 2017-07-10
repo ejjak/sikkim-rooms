@@ -1007,15 +1007,41 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
       width:16px;
       margin-left:20px;
     }
-    .review{
+    .review-wrap{
       position: absolute;
-      background: #FFF;
-      padding:5px 20px;
       bottom:-28px;
       left:40%;
-      -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-      -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-      box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+    }
+
+    .share-wrap{
+      position: absolute;
+      bottom:-29px;
+      right:20px;
+    }
+
+    .c-left{
+      display: block;
+      background: url(../img/c-left.png) top;
+      background-size: 16px;
+      width: 14px;
+      height:30px;
+      float: left;
+    }
+    .c-right{
+      display: block;
+      background: url(../img/c-right.png) top;
+      background-size: 16px;
+      width: 14px;
+      height:30px;
+      float: right;
+    }
+    .review{
+      float: left;
+      background: #FFF;
+      padding:4px 20px;
+      //-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.1);
+      //-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.1);
+      //box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.1);
       strong{
         font-weight:normal;
         padding-right:20px;
@@ -1068,14 +1094,15 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
       }
     }
     .share{
-      position: absolute;
-      bottom:-27px;
-      right:20px;
+      //position: absolute;
+      //bottom:-27px;
+      //right:20px;
+      float: left;
       background: #FFF;
-      padding:5px 40px;
-      -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-      -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-      box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+      padding:5px 20px;
+      //-webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+      //-moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+      //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
 
       .fa{
         color: #78bbda;
@@ -1161,6 +1188,40 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
         color: #FFF; border: 1px solid #fff;}
     }
 
+  }
+  .star{
+    background: url('../img/star.png') no-repeat top right;
+    background-size:100px;
+    position: absolute; top:15px; right:-50px;
+  }
+
+  .star_5{
+    background-position:0 -76px;
+    height:20px;
+    width:110px;
+  }
+
+  .star_4{
+    background-position:0 -56px;
+    height:20px;
+    width:110px;
+  }
+
+  .star_3{
+    background-position:0 -36px;
+    height:20px;
+    width:110px;
+  }
+
+  .star_2{
+    background-position:0  -16px;
+    height:20px;
+    width:110px;
+  }
+  .star_1{
+    background-position:0  4px;
+    height:20px;
+    width:110px;
   }
 }
 
