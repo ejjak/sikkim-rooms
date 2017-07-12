@@ -169,7 +169,7 @@ class DefaultController extends Controller
         {
             if($row instanceof  Hotel){
             $id=$row->getId();
-            $query = $conn->fetchAssoc('SELECT sum(`average`) as `average`, sum(`good`) as `good`, sum(`excellent`) as `excellent` FROM Review where hotel_id=?', array($id));
+            $query = $conn->fetchAssoc('SELECT sum(`average`) as `average`, sum(`good`) as `good`, sum(`excellent`) as `excellent` FROM review where hotel_id=?', array($id));
 //            dump($query);die;
             if($query['average'] == "")
                 $query['average'] = 0;
@@ -184,7 +184,7 @@ class DefaultController extends Controller
             $goodCount = $query['good'];
             $excellentCount = $query['excellent'];
 
-            $likeORunlike = $conn->fetchAssoc('SELECT * FROM Review where hotel_id=? and uid=?', array($id,$uid));
+            $likeORunlike = $conn->fetchAssoc('SELECT * FROM review where hotel_id=? and uid=?', array($id,$uid));
             if($likeORunlike > 0)// check if alredy liked or not condition
             {
 
@@ -302,10 +302,10 @@ class DefaultController extends Controller
 //            $stmt->bindValue(2,$uid);
 //            $stmt->execute();
 //            $row = $stmt->fetchAll();
-            $row = $conn->fetchColumn('SELECT * FROM Review where hotel_id=? and uid=?', array($pid,$uid));
+            $row = $conn->fetchColumn('SELECT * FROM review where hotel_id=? and uid=?', array($pid,$uid));
             if($row > 0)// check if alredy liked or not condition
             {
-                $likeORunlike = $conn->fetchAll('SELECT * FROM Review where hotel_id=? and uid=?', array($pid,$uid));
+                $likeORunlike = $conn->fetchAll('SELECT * FROM review where hotel_id=? and uid=?', array($pid,$uid));
                 $average='';
                 $good='';
                 $excellent='';
@@ -319,20 +319,20 @@ class DefaultController extends Controller
                     if($op == 'average')  // if alredy liked set unlike for alredy liked product
                     {
 
-                        $conn->executeUpdate('update `Review` set `average` = ?, `good` = ?, `excellent` = ? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
+                        $conn->executeUpdate('update `review` set `average` = ?, `good` = ?, `excellent` = ? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
                         echo 2;
 
                     }
                     elseif($op == 'good') // if alredy unliked set like for alredy unliked product
                     {
 
-                        $conn->executeUpdate('update `Review` set `good` = ?, `average`= ?, `excellent` = ? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
+                        $conn->executeUpdate('update `review` set `good` = ?, `average`= ?, `excellent` = ? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
                         echo 2;
 //                    $conn->update('Reviews', array('unlike'=>'0', 'like'=>'1'), array('id'=>$likeORunlike[0]['id']), array('uid'=>$uid));
                     }
                     elseif($op == 'excellent')
                     {
-                        $conn->executeUpdate('update `Review` set `excellent` = ?, `good` = ?, `average` =? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
+                        $conn->executeUpdate('update `review` set `excellent` = ?, `good` = ?, `average` =? where id = ? and uid = ?', array(1,0,0,$val['id'], $uid));
                         echo 2;
                     }
                 }
