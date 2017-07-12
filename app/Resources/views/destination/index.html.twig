@@ -1,8 +1,18 @@
 {% extends '::admin.html.twig' %}
 
 {% block body %}
-    <h1>Destinations list</h1>
-
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Destination list</h3>
+    </div>
+    <div class="panel-body">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -30,5 +40,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
+    </div>
 {% endblock %}

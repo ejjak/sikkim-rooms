@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Hotel;
 use AppBundle\Entity\Milestone;
+use Doctrine\ORM\Query;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -152,7 +153,7 @@ class DefaultController extends Controller
     /**
      * Lists all hotel entities.
      *
-     * @Route("/hotel_listing/{destination}", name="hotel_list")
+     * @Route("/listing/{destination}", name="hotel_list")
      * @Method("GET")
      */
     public function HotelListingAction($destination,Request $request)
@@ -162,7 +163,7 @@ class DefaultController extends Controller
         $conn = $this->get('database_connection');
         $em = $this->getDoctrine()->getManager();
         $hotels = $em->getRepository('AppBundle:Hotel')->findHotelsAction($destination);
-//        dump($hotels);die;
+        shuffle($hotels);
         $response = array();
         foreach($hotels as $row)
         {
@@ -213,15 +214,15 @@ class DefaultController extends Controller
                 }
 
                 $likeButton = '
-            <input '.$average.' type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like '.$disable_average.'" id="linkeBtn_'.$id.'" />
-            <input '.$good.' type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike '.$disable_good.'" id="unlinkeBtn_'.$id.'" />
+            <input '.$average.' type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like '.$disable_average.'" id="likeBtn_'.$id.'" />
+            <input '.$good.' type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike '.$disable_good.'" id="unlikeBtn_'.$id.'" />
             <input '.$excellent.' type="button" value="'.$excellentCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Excellent" class="button_excellent '.$disable_excellent.'" id="excellentBtn_'.$id.'" />
             ';
             }
             else{ //not liked and disliked product
                 $likeButton = '
-            <input  type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like" id="linkeBtn_'.$id.'" />
-            <input  type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike" id="unlinkeBtn_'.$id.'" />
+            <input  type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like" id="likeBtn_'.$id.'" />
+            <input  type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike" id="unlikeBtn_'.$id.'" />
             <input  type="button" value="'.$excellentCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Excellent" class="button_excellent" id="excellentBtn_'.$id.'" />
             ';
             }

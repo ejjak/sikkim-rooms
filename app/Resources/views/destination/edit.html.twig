@@ -1,6 +1,13 @@
 {% extends '::admin.html.twig' %}
 
 {% block body %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="panel panel-default">
         <div class="panel-heading">
             <table width="100%">

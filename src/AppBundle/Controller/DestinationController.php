@@ -47,8 +47,11 @@ class DestinationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($destination);
             $em->flush();
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Destination has been added successfully !');
 
-            return $this->redirectToRoute('destination_show', array('id' => $destination->getId()));
+            return $this->redirectToRoute('destination_index', array('id' => $destination->getId()));
         }
 
         return $this->render('destination/new.html.twig', array(
@@ -87,6 +90,9 @@ class DestinationController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Destination has been successfully updated !');
 
             return $this->redirectToRoute('destination_edit', array('id' => $destination->getId()));
         }

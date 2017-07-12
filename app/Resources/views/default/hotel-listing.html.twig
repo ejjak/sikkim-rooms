@@ -995,18 +995,18 @@
             $('.button_like').click(function(e)
             {
                 var productID = $(this).attr('rel');
-                var likeval = parseInt($("#linkeBtn_"+productID).val(), 10);
-                var unlikeval = parseInt($("#unlinkeBtn_"+productID).val(), 10);
+                var likeval = parseInt($("#likeBtn_"+productID).val(), 10);
+                var unlikeval = parseInt($("#unlikeBtn_"+productID).val(), 10);
                 var excellent = parseInt($("#excellentBtn_"+productID).val(), 10);
                 $.post("{{ path('hotel_review') }}", {op:"average",pid: productID},function(data)
                 {
 
                     likeval = likeval+1;
-                    $("#linkeBtn_"+productID).val(likeval);
-                    $("#linkeBtn_"+productID).attr("disabled", "disabled");
-                    $("#unlinkeBtn_"+productID).attr("disabled", "disabled");
-                    $("#linkeBtn_"+productID).css("background-image","url({{ asset('img/like.png') }})");
-                    $("#unlinkeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
+                    $("#likeBtn_"+productID).val(likeval);
+                    $("#likeBtn_"+productID).attr("disabled", "disabled");
+                    $("#unlikeBtn_"+productID).attr("disabled", "disabled");
+                    $("#likeBtn_"+productID).css("background-image","url({{ asset('img/like.png') }})");
+                    $("#unlikeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
                     $("#excellentBtn_"+productID).prop("disabled", "disabled");
                     $("#excellentBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
 //                    if(data == 1)
@@ -1043,18 +1043,18 @@
             $('.button_unlike').click(function(e)
             {
                 var productID = $(this).attr('rel');
-                var likeval = parseInt($("#linkeBtn_"+productID).val(), 10);
-                var unlikeval = parseInt($("#unlinkeBtn_"+productID).val(), 10);
+                var likeval = parseInt($("#likeBtn_"+productID).val(), 10);
+                var unlikeval = parseInt($("#unlikeBtn_"+productID).val(), 10);
                 var excellent = parseInt($("#excellentBtn_"+productID).val(), 10);
                 $.post("{{ path('hotel_review') }}", {op:"good",pid: productID},function(data)
                 {
 
                     unlikeval = unlikeval+1;
-                    $("#unlinkeBtn_"+productID).val(unlikeval);
-                    $("#unlinkeBtn_"+productID).attr("disabled", "disabled");
-                    $("#likevalBtn_"+productID).prop("disabled", "disabled");
-                    $("#unlinkeBtn_"+productID).css("background-image","url({{ asset('img/like.png') }})");
-                    $("#linkeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
+                    $("#unlikeBtn_"+productID).val(unlikeval);
+                    $("#unlikeBtn_"+productID).attr("disabled", "disabled");
+                    $("#likeBtn_"+productID).prop("disabled", "disabled");
+                    $("#unlikeBtn_"+productID).css("background-image","url({{ asset('img/like.png') }})");
+                    $("#likeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
                     $("#excellentBtn_" + productID).prop("disabled", "disabled");
                     $("#excellentBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
 
@@ -1099,8 +1099,8 @@
             {
                 event.preventDefault(e)
                 var productID = $(this).attr('rel');
-                var likeval = parseInt($("#linkeBtn_"+productID).val(), 10);
-                var unlikeval = parseInt($("#unlinkeBtn_"+productID).val(), 10);
+                var likeval = parseInt($("#likeBtn_"+productID).val(), 10);
+                var unlikeval = parseInt($("#unlikeBtn_"+productID).val(), 10);
                 var excellent = parseInt($("#excellentBtn_"+productID).val(), 10);
                 $.post("{{ path('hotel_review') }}", {op:"excellent",pid: productID},function(data)
                 {
@@ -1108,10 +1108,10 @@
                     $("#excellentBtn_"+productID).val(excellent);
                     $("#excellentBtn_"+productID).attr("disabled", "disabled");
                     $("#excellentBtn_"+productID).css("background-image","url({{ asset('img/like.png') }})");
-                    $("#likevalBtn_"+productID).prop("disabled", "disabled");
-                    $("#linkeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
+                    $("#likeBtn_"+productID).prop("disabled", "disabled");
+                    $("#likeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
                     $("#unlikeBtn_"+productID).prop("disabled", "disabled");
-                    $("#uninkeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
+                    $("#unlikeBtn_"+productID).css("background-image","url({{ asset('img/likebw.png') }})");
                     {#if(data == 1)#}
                     {#{#}
 

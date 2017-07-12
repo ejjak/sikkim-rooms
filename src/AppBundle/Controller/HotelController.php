@@ -57,8 +57,11 @@ class HotelController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($hotel);
             $em->flush();
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'New Hotel has been added successfully !');
 
-            return $this->redirectToRoute('hotel_show', array('id' => $hotel->getId()));
+            return $this->redirectToRoute('hotel_index', array('id' => $hotel->getId()));
         }
 
         return $this->render('hotel/new.html.twig', array(
@@ -121,7 +124,9 @@ class HotelController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($hotel);
             $em->flush();
-
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Hotel has been successfully updated !');
             return $this->redirectToRoute('hotel_edit', array('id' => $hotel->getId()));
         }
 
