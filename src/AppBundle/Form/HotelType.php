@@ -34,7 +34,7 @@ class HotelType extends AbstractType
             ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Email address'),
                 'constraints' => array(
                     new NotBlank(array("message" => "Please provide a valid email")),
-                    new Email(array("message" => "Your email doesn't seems to be valid")),
+//                    new Email(array("message" => "Your email doesn't seems to be valid")),
                 )
             ))
             ->add('phone', TextType::class, array('attr' => array('placeholder' => 'Phone number'),
@@ -60,10 +60,10 @@ class HotelType extends AbstractType
                 'expanded' => true
             ))
             ->add('gmap', TextareaType::class, array(
-                'required' => false
+                'required' => true
             ))
             ->add('website', TextType::class, array(
-                'required' => false
+                'required' => true
             ))
             ->add('priceRangeA', TextType::class, array('attr' => array('placeholder' => '2000'),
                 'constraints' => array(
