@@ -359,7 +359,7 @@ class DefaultController extends Controller
             }
             else  // New Like
             {
-                $conn->insert('Review', array('hotel_id' => $pid, 'uid' => $uid, $gofor => '1'));
+                $conn->insert('review', array('hotel_id' => $pid, 'uid' => $uid, $gofor => '1'));
                 echo 1;
             }
             exit;
