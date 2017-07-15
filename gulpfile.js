@@ -37,8 +37,7 @@ gulp.task('styles', function() {
     app.addStyle([
         config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
         config.bowerDir+'/font-awesome/css/font-awesome.css',
-        config.assetsDir+'/sass/layout.scss',
-        config.assetsDir+'/sass/adverts.scss'
+        config.assetsDir+'/sass/theme.scss'
     ], 'main.css');
 });
 

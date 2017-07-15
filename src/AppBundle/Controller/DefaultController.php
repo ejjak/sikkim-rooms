@@ -33,35 +33,11 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/page", name="hotel-listing")
+     * @Route("/data", name="hotel-data")
      */
     public function pageAction(Request $request)
     {
-        return $this->render('default/hotel-listing.html.twig');
-    }
-
-    /**
-     * @Route("/pelling", name="pelling-hotel")
-     */
-    public function hotel1Action(Request $request)
-    {
-        return $this->render(':default:pelling-hotel.html.twig');
-    }
-
-    /**
-     * @Route("/lachung", name="lachung-hotel")
-     */
-    public function hotel2Action(Request $request)
-    {
-        return $this->render(':default:lachung-hotel.html.twig');
-    }
-
-    /**
-     * @Route("/namchi", name="namchi-hotel")
-     */
-    public function hotel3Action(Request $request)
-    {
-        return $this->render(':default:namchi-hotel.html.twig');
+        return $this->render('default/hotel-data.html.twig');
     }
 
     /**

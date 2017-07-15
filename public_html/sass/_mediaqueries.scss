@@ -1,0 +1,57 @@
+//SMALL DEVICES
+//portrait view //
+@media (min-width: 320px) and (max-width: 767px) {
+  body{
+    font-size: 12px !important;
+  }
+
+  #hotel-listing{
+    padding-bottom:20px !important;
+  }
+  .out-of-box{
+    .review-wrap{
+      position: absolute;
+      bottom:0px !important;
+      left:1px !important;
+    }
+    .share-wrap{
+      position: absolute;
+      bottom:0px !important;
+      right:1px !important;
+    }
+    .c-left{ display: none !important;}
+    .c-right{display: none !important;}
+    strong{
+      font-weight:normal;
+      padding-right:5px !important;
+      margin-top: 40px;
+    }
+    .button_like {padding:0 20px 0 25px !important;}
+    .button_unlike {padding:0 20px 0 25px !important;}
+    .button_excellent {padding:0 20px 0 25px !important;}
+  }
+
+}
+
+//landscape view //
+  @media (min-width: 486px)  and(max-width: 767px) {
+
+
+  }
+
+  //TABLETS
+  //portrait view//
+  @media (min-width: 768px) and (max-width: 991px){
+
+
+  }
+
+  //landscape view//
+  @media (min-width: 992px) and (max-width: 1199px) {
+
+  }
+
+  //OTHER LARGE DEVICES
+  @media (min-width: 1200px) {
+
+  }

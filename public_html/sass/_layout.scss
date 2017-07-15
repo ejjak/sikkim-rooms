@@ -1,6 +1,6 @@
-$open-sans: 'Open Sans', sans-serif;
-
 @charset "utf-8";
+
+$open-sans: 'Open Sans', sans-serif;
 
 body {
   overflow-x: hidden;
@@ -1224,7 +1224,19 @@ h1.lined-heading span, h2.lined-heading span, h3.lined-heading span, h4.lined-he
     width:110px;
   }
 }
-
+.noData {
+  margin-bottom: 45px;
+  border: 1px solid #f0f0f0;
+  min-height:200px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  background: #FFF;
+  padding: 100px;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
 .hotel-img img{
   height: 258px;
   width: 100%;
