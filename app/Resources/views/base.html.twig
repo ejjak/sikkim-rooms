@@ -39,7 +39,7 @@
 </header>
 <section id="frame">
     {% block frame %}
-        <img src="{{ asset('img/frame.jpg') }}" alt="">
+        {{ render(controller('AppBundle:Default:banner')) }}
     {% endblock %}
     <section id="reservation-form">
         <div class="container">

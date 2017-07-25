@@ -1,0 +1,48 @@
+{% extends '::admin.html.twig' %}
+
+{% block body %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Banner Image</h3>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="">
+        <tbody>
+        {% for banner in banners %}
+            <tr>
+                <td><img src="{{ asset('uploads/banner/'~banner.imageurl) }}" class="img-responsive" alt=""></td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        {#<li>#}
+                        {#<a href="{{ path('hotel_show', { 'id': hotel.id }) }}">show</a>#}
+                        {#</li>#}
+
+                        <li>
+                            <br>
+                            <a href="{{ path('banner_edit', { 'id': banner.id }) }}" class="btn-primary btn"><i class="fa fa-pencil"></i> edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            </div>
+        </div>
+</div>
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('banner_new') }}">Create a new banner</a>#}
+        {#</li>#}
+    {#</ul>#}
+{% endblock %}

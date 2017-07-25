@@ -1,0 +1,68 @@
+{% if res is defined and res is not empty %}
+    {% for var in res %}
+        <div class="hotel-wrap">
+            <div id="hotel-listing">
+                <div class="col-lg-5 col-sm-6 row">
+                    <div class="hotel-img">
+                        <img src="{{ asset('uploads/hotels/'~ var.image) }}" alt="" class="img-responsive">
+                        <span class="price"><i class="fa fa-rupee"></i>{{ var.rangeA }} - <i class="fa fa-rupee"></i>{{ var.rangeB }}</span>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-sm-6">
+                    <div class="hotel-details">
+                        <h3>{{ var.title }}</h3>
+                        <span class="address">{{ var.address }}</span><br>
+                        <span class="com">Email: {{ var.email }}</span><br>
+                        <span class="contact"><strong>Call us : {{ var.phone }}</strong></span><br>
+                        <span class="amenities">
+                                {% for fa in var.amenities %}
+                                    <i class="fa {{ fa }}" title=""></i>
+                                {% endfor %}
+                    </span>
+                        <h5>
+                            <a href="{{ var.maplink }}"
+                               target="_blank" class="g-map"><img src="{{ asset('img/map.png') }}" alt=""> </a>
+                            Nearby
+                            Milestones
+                        </h5>
+                        <ul>
+                            {% for var in var.detail %}
+                                <li class="popover-icon" data-container="body" data-toggle="popover"
+                                    data-trigger="hover"
+                                    data-placement="top" data-content="{{ var.mtitle }}">
+                                    <img src="{{ asset('uploads/milestones/'~var.path) }}" class="img-circle grow" alt="">
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <span class="more"><a href="http://hotelshantiniketangangtok.com"
+                                              target="_blank">CHECK-IN</a></span>
+                        <i class="star star_{{ var.star }}"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="out-of-box">
+                <div class="review-wrap">
+                    <i class="c-left"></i>
+                    <div class="review">
+
+                        <strong>Review</strong>
+                        {{ var.likebutton|raw }}
+
+                    </div>
+                    <i class="c-right"></i>
+                </div>
+                <div class="share-wrap">
+                    <i class="c-left"></i>
+                    <div class="share">
+                        Share
+                        <i class="fa fa-share-alt"></i>
+                    </div>
+                    <i class="c-right"></i>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <h3 class="text-danger">No Hotels Found !</h3>
+{% endif %}

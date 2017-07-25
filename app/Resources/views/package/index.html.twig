@@ -1,0 +1,49 @@
+{% extends '::admin.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <table width="100%">
+
+                <tr>
+                    <th><h5>Best Deals  </h5>{{ title }}</th>
+                </tr>
+
+            </table>
+        </div>
+        <div id="files" class="form-wrapper" cellspacing="15">
+            <div class="panel-body">
+
+                <div >
+                    <div class="form-group">
+                        <div >
+                            <ul class="clearfix tags">
+                                {% for i in path %}
+                                    <div class="col-lg-2" style="border: 1px solid #dbdbdb; padding:10px; height: 100%; display: block; overflow: hidden; position: relative">
+                                        <div class="form-group">
+                                            <div class="col-lg-12">
+
+                                                <h6> <i class="fa fa-shopping-bag "></i> {{ loop.index }}</h6>
+                                                <img src="{{ asset('uploads/packages/'~i) }}" class="img-responsive" alt="">
+                                                <br>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                {% endfor %}
+                            </ul>
+                            {% for package in packages %}
+                                <br>
+                                <a  class="black x-small btn btn-sm btn-primary" href="{{ path('package_edit', { 'id': package.id }) }}"><i class="fa fa-pencil"></i> edit</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

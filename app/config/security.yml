@@ -42,4 +42,7 @@ security:
          - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/admin, role: ROLE_USER }
          - { path: ^/hotel, role: ROLE_USER }
+         - { path: ^/banner, role: ROLE_USER }
+         - { path: ^/advert, role: ROLE_USER }
+         - { path: ^/package, role: ROLE_USER }
 #         - { path: ^/register, role: ROLE_USER }

@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Banner;
 use AppBundle\Entity\Hotel;
+use AppBundle\Entity\Images;
 use AppBundle\Entity\Milestone;
 use Doctrine\ORM\Query;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -22,6 +24,71 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
+    }
+
+    /**
+     * @Route("bannerImage", name="banner_image")
+     */
+    public function bannerAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $banner = $em->getRepository('AppBundle:Banner')->findAll();
+        foreach ($banner as $val)
+        {
+            if($val instanceof Banner){
+                $image=$val->getImageurl();
+            }
+        }
+        return $this->render(':banner:banner.html.twig', array(
+            'image' => $image,
+        ));
+    }
+
+    /**
+     * @Route("advertise", name="advertisement")
+     */
+    public function advertAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getRepository('AppBundle:Advert')->findAll();
+        $adverts= array();
+        foreach ($query as $val)
+        {
+            $advert=$val->getAdvertImage();
+            foreach ($advert as $value){
+               if ($value instanceof Images){
+                   $adverts[]= $value->getPath();
+               }
+            }
+        }
+        return $this->render(':default:advert.html.twig', array(
+            'adverts' => $adverts,
+        ));
+    }
+
+    /**
+     * @Route("deals", name="best_deals")
+     */
+    public function packageAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getRepository('AppBundle:Package')->findAll();
+        $deals= array();
+        foreach ($query as $val)
+        {
+            $title=$val->getTitle();
+            $image=$val->getPackageImage();
+            foreach ($image as $value){
+                if ($value instanceof Images){
+                    $deals[]= $value->getPath();
+                }
+            }
+        }
+//        dump($deals);die;
+        return $this->render(':package:deals.html.twig', array(
+            'deals' => $deals,
+            'title' => $title
+        ));
     }
 
     /**

@@ -73,7 +73,8 @@
         {% endif %}
     </div>
     <div class="col-lg-3 hidden-sm hidden-xs">
-        {{ include(':default:advert.html.twig') }}
+        {#{{ include(':default:advert.html.twig') }}#}
+        {{ render(controller('AppBundle:Default:advert')) }}
     </div>
 {% endblock %}
 {% block javascripts %}

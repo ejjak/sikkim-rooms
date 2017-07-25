@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: en
     directory: '%kernel.root_dir%/../public_html/uploads/hotels'
+    banner: '%kernel.root_dir%/../public_html/uploads/banner'
 
 framework:
     #esi: ~

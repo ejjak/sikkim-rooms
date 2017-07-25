@@ -1,0 +1,121 @@
+{% extends '::admin.html.twig' %}
+
+{% block body %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <table width="100%">
+
+            <tr>
+                <th><h5>Advert</h5></th>
+            </tr>
+
+        </table>
+    </div>
+    {{ form_start(form) }}
+    <div id="files" class="form-wrapper" data-prototype="{% filter escape %}{% include 'advert/Prototype/files.html.twig' with {'val': form.advert_image.vars.prototype} %}{% endfilter %}" cellspacing="15">
+        <div class="panel-body">
+
+            <div class="form col-lg-6 no-gutter">
+                <div class="form-group">
+                    <div class="files col-lg-8">
+                        <ul class="clearfix tags">
+                            {% for i in form.advert_image %}
+                                <li>
+                                    {#<a href="#" class="close">Close Block</a>#}
+                                    <h6> {{ loop.index }}</h6>
+                                    {{ form_widget(i.file) }}
+
+
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <button name="files" class="add_block btn-sm"  id="1"><i class="glyphicon glyphicon-plus-sign"></i> Add Milestones</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <input type="submit" value="Create" />
+        </div>
+    {{ form_end(form) }}
+</div>
+    <ul>
+        <li>
+            <a href="{{ path('advert_index') }}">Back to the list</a>
+        </li>
+    </ul>
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script>
+        function addBlockForm($collectionHolder, grid, that) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+            // get the new index
+            var index = $collectionHolder.data('index');
+            console.log($collectionHolder);
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+            newForm = newForm.replace(/__val__/g, index+1);
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            switch(grid){
+                case '1' : that.parent().find('ul').append(newForm);
+                    removeBlock(grid);
+                    break;
+                    //
+                    //default : // Display the form in the page in an li, before the "Add a tag" link li
+                    //    var $newBlock = $('<div class="wrapper-inner float"></div>').append(newForm);
+                    //    $collectionHolder.append($newBlock);
+            }
+        }
+
+        function removeBlock(grid){
+            switch(grid) {
+                case '1' :
+                    $('.remove_block').on('click', function (e) {
+                        e.preventDefault();
+                        $(this).parent().remove();
+                    });
+                    break;
+            }
+        }
+
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $('<a href="#" class="remove_block">Remove image</a>');
+            $tagFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $tagFormLi.remove();
+            });
+        }
+
+        $(document).ready(function() {
+            var collectionHolder,
+                    grid ;
+
+            // add a delete link to all of the existing tag form li elements
+            $('.form-wrapper').find('.files li').each(function() {
+                addTagFormDeleteLink($(this));
+            });
+
+            $('.add_block').on('click', function(e) {
+                e.preventDefault();
+                // Get the fieldset that holds the collection of blocks
+                collectionHolder = $('#' + this.name);
+
+                grid = $(this).attr('id');
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+
+                collectionHolder.data('index', collectionHolder.find('.files ul li').length);
+                // add a new tag form (see next code block)
+                addBlockForm(collectionHolder, grid, $(this));
+            });
+
+        });
+    </script>
+{% endblock %}

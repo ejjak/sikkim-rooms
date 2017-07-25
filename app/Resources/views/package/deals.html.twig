@@ -1,0 +1,20 @@
+<div id="deals">
+    <div class="col-lg-12">
+        <h4><span><strong>Best Deals</strong> {{ title }}</span></h4>
+    </div>
+</div>
+<div id="owl-gallery" class="owl-carousel">
+    {% for val in deals %}
+    <div class=" img-wrap">
+        <div class="item grow">
+            <a href="{{ path('package_form') }}"><img src="{{ asset('uploads/packages/'~ val) }}" alt=""
+                                                      class="img-responsive image"></a>
+            <div class="middle">
+                <a href="{{ path('package_form') }}">
+                    <div class="text">Explore Now</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

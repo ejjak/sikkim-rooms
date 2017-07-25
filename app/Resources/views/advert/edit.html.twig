@@ -1,0 +1,151 @@
+{% extends '::admin.html.twig' %}
+
+{% block body %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <table width="100%">
+
+            <tr>
+                <th><h5>Advertisement</h5></th>
+            </tr>
+
+        </table>
+    </div>
+    {{ form_start(edit_form) }}
+    <div id="files" class="form-wrapper" data-prototype="{% filter escape %}{% include 'advert/Prototype/files.html.twig' with {'val': edit_form.advert_image.vars.prototype} %}{% endfilter %}" cellspacing="15">
+        <div class="panel-body">
+
+            <div >
+                <div class="form-group">
+                    <div >
+                        <ul class="clearfix tags">
+                            {% for i in edit_form.advert_image %}
+                                <div class="col-lg-2" style="border: 1px solid #dbdbdb; padding:10px; height: 100%; display: block; overflow: hidden; position: relative">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+
+                                            <h6> <i class="fa fa-adn"></i> {{ loop.index }}</h6>
+                                            <img src="{{ asset('uploads/adverts/'~ i.vars.data.path) }}" style="height:150px; width:100%"/><br>
+                                            <hr>
+                                            {{ form_widget(i.file, {'attr':{'class': 'file1'}}) }}
+                                            {{ form_errors(i.file) }}
+                                            {#<input type="file" name="appbundle_hotel[imageurl]" id="appbundle_hotel_imageurl" class="file">#}
+                                            {#<div class="input-group col-xs-12">#}
+                                            {#<span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>#}
+                                            {#<input type="text" class="form-control input-lg" disabled placeholder="Upload Image">#}
+                                            {#<span class="input-group-btn">#}
+                                            {#<button class="browse btn btn-black input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>#}
+                                            {#</span>#}
+                                            {#</div>#}
+                                        </div>
+                                        {#{{ form_label(val.title) }}#}
+                                        {#{{ form_errors(val.title) }}#}
+                                        {#{{ form_widget(val.title) }}#}
+                                    </div>
+
+
+                                </div>
+                                {#<li>#}
+                                    {#<a href="#" class="close">Close Block</a>#}
+                                    {#<h6> {{ loop.index }}</h6>#}
+                                    {#{{ form_widget(i.file) }}#}
+
+                                    {#<img src="{{ asset('uploads/adverts/'~ i.vars.data.path) }}" height="50" width="50"/><br>#}
+                                {#</li>#}
+                            {% endfor %}
+                        </ul>
+                        {#<button name="files" class="add_block btn-sm"  id="1"><i class="glyphicon glyphicon-plus-sign"></i> Add Milestones</button>#}
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="update" class="black x-small btn btn-sm btn-black" />
+        </div>
+
+    </div>
+    {{ form_end(edit_form) }}
+</div>
+    <p class="text-muted" style="font-size:13px"><strong class="text-danger">NOTE:</strong> Advert image size should be 267  x 301 </p>
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script>
+        function addBlockForm($collectionHolder, grid, that) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+            // get the new index
+            var index = $collectionHolder.data('index');
+            console.log($collectionHolder);
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+            newForm = newForm.replace(/__val__/g, index+1);
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            switch(grid){
+                case '1' : that.parent().find('ul').append(newForm);
+                    removeBlock(grid);
+                    break;
+                    //
+                    //default : // Display the form in the page in an li, before the "Add a tag" link li
+                    //    var $newBlock = $('<div class="wrapper-inner float"></div>').append(newForm);
+                    //    $collectionHolder.append($newBlock);
+            }
+        }
+
+        function removeBlock(grid){
+            switch(grid) {
+                case '1' :
+                    $('.remove_block').on('click', function (e) {
+                        e.preventDefault();
+                        $(this).parent().remove();
+                    });
+                    break;
+            }
+        }
+
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $(' <a href="#" class="remove_block new"><i class="glyphicon glyphicon-remove-circle"></i></a>');
+            $tagFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $tagFormLi.remove();
+            });
+        }
+
+        $(document).ready(function() {
+            var collectionHolder,
+                    grid ;
+
+            // add a delete link to all of the existing tag form li elements
+            $('.form-wrapper').find('.files li').each(function() {
+                addTagFormDeleteLink($(this));
+            });
+
+            $('.add_block').on('click', function(e) {
+                e.preventDefault();
+                // Get the fieldset that holds the collection of blocks
+                collectionHolder = $('#' + this.name);
+
+                grid = $(this).attr('id');
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+
+                collectionHolder.data('index', collectionHolder.find('.files ul li').length);
+                // add a new tag form (see next code block)
+                addBlockForm(collectionHolder, grid, $(this));
+            });
+
+        });
+    </script>
+{% endblock %}
