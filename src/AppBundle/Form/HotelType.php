@@ -53,7 +53,12 @@ class HotelType extends AbstractType
                     'Laundry' => 'fa-shopping-basket',
                     'Room Service' => 'fa-coffee',
                     'Food' => 'fa-cutlery',
-                    'Casino' => 'fa-support'
+                    'Casino' => 'fa-support',
+                    'AC'    => 'fa-snowflake-o',
+                    'Lift' => 'fa-sort-numeric-asc',
+                    'Parking' => 'fa-product-hunt',
+                    'Bar' => 'fa-glass',
+                    'Swimming Pool' => 'fa-stumbleupon'
 
                 ),
                 'multiple' => true,
