@@ -592,6 +592,24 @@ header nav {
   }
 }
 
+.nav{float: right;}
+
+#helpline{
+  padding-bottom: 10px;
+  .container{
+    position: relative;
+  }
+  .call-at{
+    float: right;
+    color: #FFF;
+    position:absolute;
+    right:45px;
+    top:10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
 // FRAME
 
 #frame{
