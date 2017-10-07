@@ -1,6 +1,9 @@
 //SMALL DEVICES
 //portrait view //
 @media (min-width: 320px) and (max-width: 767px) {
+  .nav{
+    float:none !important;
+  }
   body{
     font-size: 12px !important;
   }
