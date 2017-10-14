@@ -45,4 +45,5 @@ security:
          - { path: ^/banner, role: ROLE_USER }
          - { path: ^/advert, role: ROLE_USER }
          - { path: ^/package, role: ROLE_USER }
+         - { path: ^/register, role: ROLE_USER }
 #         - { path: ^/register, role: ROLE_USER }
