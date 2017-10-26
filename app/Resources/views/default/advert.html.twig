@@ -1,14 +1,21 @@
 
     <div id="add">
-        {% for val in adverts %}
+        {% for key,val in adverts %}
+
             <div class="adverts img-wrap">
                 <div id="owl-add" class="owl-carousel">
                     <div class="item">
                         <img src="{{ asset('uploads/adverts/'~ val) }}" alt="" class="img-responsive image">
                         <div class="middle">
+                            {%  if key == 0 %}
+                            <a href="{{ path('taxi_form') }}">
+                                <div class="text">Explore Now</div>
+                            </a>
+                            {% else %}
                             <a href="{{ path('package_form') }}">
                                 <div class="text">Explore Now</div>
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
