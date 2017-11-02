@@ -9,7 +9,8 @@
                         <div class="col-lg-5 col-sm-6 row">
                             <div class="hotel-img">
                                 <img src="{{ asset('uploads/hotels/'~ var.image) }}" alt="" class="img-responsive">
-                                <span class="price"><i class="fa fa-rupee"></i>{{ var.rangeA }} - <i class="fa fa-rupee"></i>{{ var.rangeB }}</span>
+                                {#<span class="price"><i class="fa fa-rupee"></i>{{ var.rangeA }} - <i class="fa fa-rupee"></i>{{ var.rangeB }}</span>#}
+                                <span class="price">Starts @ <i class="fa fa-rupee"></i>{{ var.rangeA }}</span>
                             </div>
                         </div>
                         <div class="col-lg-7 col-sm-6">
