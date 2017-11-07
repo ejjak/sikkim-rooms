@@ -342,4 +342,13 @@ class DefaultController extends Controller
         ));
     }
 
+
+    /**
+     * @Route("/sikkim-tour", name="sikkim-tour")
+     */
+    public function sikkimTourAction(Request $request)
+    {
+        return $this->render(':default:sikkim-tour.html.twig');
+    }
+
 }
