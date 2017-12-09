@@ -1,4 +1,4 @@
-<form class="form-inline reservation-horizontal clearfix" role="form" method="post" action=""
+<form class="form-inline reservation-horizontal clearfix" role="form" method="post" action="{{ path('filter_hotels') }}"
       name="reservationform" id="reservationform">
     <!-- Error message -->
     <div id="message"></div>
@@ -6,10 +6,10 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label for="email" accesskey="E">Destination</label>
-                <select required class="form-control" name="room" id="destination">
+                <select required class="form-control" name="destination" id="destination">
                     <option value="" selected="selected" disabled="disabled"> Select Destination</option>
                     {% for val in destination %}
-                        <option value="{{ path('hotel_list',{'destination': val.destinatonName}) }}">{{ val.destinatonName }}</option>
+                        <option value="{{ val.destinatonName }}">{{ val.destinatonName }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -45,13 +45,12 @@
                 {#data-trigger="hover" data-placement="right"#}
                 {#data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i#}
                 {#class="fa fa-info-circle fa-lg"> </i></div>#}
-                <select class="form-control" name="room" id="room">
-                    <option selected="selected" disabled="disabled">Select Room</option>
-                    <option value="0">Standard</option>
-                    <option value="1">Deluxe</option>
-                    <option value="2">Super Deluxe</option>
-                    <option value="3">Executive</option>
-                    <option value="4">Luxury</option>
+                <select required class="form-control" name="room" id="room">
+                    <option selected="selected" disabled="disabled" value="">Select Room</option>
+                    <option value="0">2 Star</option>
+                    <option value="1">3 Star</option>
+                    <option value="2">4 Star</option>
+                    <option value="3">5 Star</option>
                 </select>
             </div>
         </div>
@@ -62,7 +61,7 @@
                 {#data-trigger="hover" data-placement="right"#}
                 {#data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i#}
                 {#class="fa fa-info-circle fa-lg"> </i></div>#}
-                <select class="form-control" name="room" id="price">
+                <select class="form-control" name="price" id="price">
                     <option selected="selected" disabled="disabled">Select Price</option>
                 </select>
             </div>

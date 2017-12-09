@@ -2,6 +2,9 @@
 {% block title %}Hotels | Sikkim Rooms{% endblock %}
 {% block body %}
     <div class="col-lg-9">
+        <div style="color: #8c8c8c;margin-top:-20px; padding-bottom: 5px;">
+           Rooms in  {{ location }} : {{ count }} results
+        </div>
         {% if res is defined and res is not empty %}
             {% for var in res %}
                 <div class="hotel-wrap">

@@ -417,12 +417,10 @@ $(document).ready(function() {
 //                "<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>",
 //                "<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>",
 
-        "<option value='Single'>800 - 1500</option><option value='Double'>1500 - 3000</option>",
-        "<option value='Double'>1500 - 3000</option><option value='Deluxe'>3000 - 5000</option>",
-        "<option value='Deluxe'>3000 - 5000</option><option value='Deluxe'>5000 - 8000</option>",
-        "<option value='Deluxe'>5000 - 8000</option><option value='Deluxe'>8000 - 12000</option>",
-        "<option value='Deluxe'>8000 - 12000</option><option value='Deluxe'>12000 - more</option>",
-        "<option value='Deluxe'>12000 - more</option>"
+        "<option value='500,1000'>500 - 1000</option><option value='1100,1500'>1100 - 1500</option>",
+        "<option value='1600,2000'>1600 - 2000</option><option value='2100,2500'>2100 - 2500</option>",
+        "<option value='2600,3500'>2600 - 3500</option><option value='3600,5500'>3600 - 5500</option>",
+        "<option value='5600,7000'>5600 - 7000</option><option value='7000-10000'>7000 - above</option>"
     ];
 
 });

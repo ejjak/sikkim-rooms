@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 use AppBundle\Entity\Destination;
 use AppBundle\Entity\Hotel;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * HotelRepository
@@ -36,5 +37,16 @@ class HotelRepository extends \Doctrine\ORM\EntityRepository
             }
         }
         return $details;
+    }
+
+    public function filterHotelAction()
+    {
+        $destination    = $_POST['destination'];
+        list($price1,$price2) = explode(",",$_POST['price']);
+        $em=$this->getEntityManager();
+        $hotel = $em->createQuery("SELECT h FROM AppBundle:Hotel h LEFT JOIN AppBundle:Destination d with h.destination = d.id WHERE d.destinationName = :destination AND h.priceRangeA BETWEEN  $price1 AND $price2")
+            ->setParameter('destination', $destination);
+        $result = $hotel->getResult();
+        return $result;
     }
 }

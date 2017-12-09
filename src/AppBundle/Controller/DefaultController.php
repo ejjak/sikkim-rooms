@@ -20,6 +20,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
@@ -348,7 +349,121 @@ class DefaultController extends Controller
      */
     public function sikkimTourAction(Request $request)
     {
+
         return $this->render(':default:sikkim-tour.html.twig');
+    }
+
+
+    /**
+     * Lists all hotel entities.
+     *
+     * @Route("/listing", name="filter_hotels")
+     */
+    public function AllHotelListingAction(Request $request)
+    {
+        $locaton = $request->request->get('destination');
+        $_SESSION = $request->getSession();
+        $uid = $_SESSION->getId();
+        $conn = $this->get('database_connection');
+        $em = $this->getDoctrine()->getManager();
+        $hotels = $em->getRepository('AppBundle:Hotel')->filterHotelAction();
+        shuffle($hotels);
+        $count = count($hotels);
+        $response = array();
+        foreach($hotels as $row)
+        {
+            if($row instanceof  Hotel){
+                $id=$row->getId();
+                $query = $conn->fetchAssoc('SELECT sum(`average`) as `average`, sum(`good`) as `good`, sum(`excellent`) as `excellent` FROM review where hotel_id=?', array($id));
+//            dump($query);die;
+                if($query['average'] == "")
+                    $query['average'] = 0;
+
+                if($query['good'] == "")
+                    $query['good'] = 0;
+
+                if($query['excellent'] == "")
+                    $query['excellent'] = 0;
+
+                $averageCount = $query['average'];
+                $goodCount = $query['good'];
+                $excellentCount = $query['excellent'];
+
+                $likeORunlike = $conn->fetchAssoc('SELECT * FROM review where hotel_id=? and uid=?', array($id,$uid));
+                if($likeORunlike > 0)// check if alredy liked or not condition
+                {
+
+                    $average = '';
+                    $good = '';
+                    $excellent = '';
+                    $disable_average = '';
+                    $disable_good = '';
+                    $disable_excellent = '';
+                    if($likeORunlike['average'] == 1) // if alredy liked then disable like button
+                    {
+                        $average = 'disabled="disabled"';
+                        $disable_good = "button_disable";
+                        $disable_excellent = "button_disable";
+                    }
+                    elseif($likeORunlike['good'] == 1) // if alredy dislike the disable unlike button
+                    {
+                        $good = 'disabled="disabled"';
+                        $disable_average = "button_disable";
+                        $disable_excellent = "button_disable";
+                    }
+                    elseif($likeORunlike['excellent'] == 1) // if alredy dislike the disable unlike button
+                    {
+                        $excellent = 'disabled="disabled"';
+                        $disable_average = "button_disable";
+                        $disable_good = "button_disable";
+                    }
+
+                    $likeButton = '
+            <input '.$average.' type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like '.$disable_average.'" id="likeBtn_'.$id.'" />
+            <input '.$good.' type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike '.$disable_good.'" id="unlikeBtn_'.$id.'" />
+            <input '.$excellent.' type="button" value="'.$excellentCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Excellent" class="button_excellent '.$disable_excellent.'" id="excellentBtn_'.$id.'" />
+            ';
+                }
+                else{ //not liked and disliked product
+                    $likeButton = '
+            <input  type="button" value="'.$averageCount.'" rel="'.$id.'" data-toggle="tooltip"  data-placement="top" title="Average" class="button_like" id="likeBtn_'.$id.'" />
+            <input  type="button" value="'.$goodCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Good" class="button_unlike" id="unlikeBtn_'.$id.'" />
+            <input  type="button" value="'.$excellentCount.'" rel="'.$id.'" data-toggle="tooltip" data-placement="top" title="Excellent" class="button_excellent" id="excellentBtn_'.$id.'" />
+            ';
+                }
+
+                $milestone = $row->getMilestone();
+                $detail = array();
+                foreach ($milestone as $val){
+                    if($val instanceof Milestone){
+                        $detail[] = array(
+                            'mtitle'=>$val->getTitle(),
+                            'path' =>$val->getPath()
+                        );
+                    }
+                }
+
+                $response[] = array(
+                    'title' => $row->getTitle(),
+                    'address' =>$row->getAddress(),
+                    'email' =>$row->getEmail(),
+                    'phone' => $row->getPhone(),
+                    'amenities'=>$row->getAmenities(),
+                    'maplink' => $row->getGmap(),
+                    'website' => $row->getWebsite(),
+                    'star' => $row->getStar(),
+                    'image' => $row->getImageurl(),
+                    'rangeA' => $row->getPriceRangeA(),
+                    'rangeB' => $row->getPriceRangeB(),
+                    'detail' => $detail,
+                    'likebutton' => $likeButton);
+            }
+        }
+        return $this->render(':default:hotel-listing.html.twig', array(
+            'res' => $response,
+            'count'=>$count,
+            'location'=>$locaton
+        ));
     }
 
 }

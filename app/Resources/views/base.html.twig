@@ -127,17 +127,17 @@
     <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery-ui-1.10.4.custom.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.sticky.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.forms.js') }}"></script>
+    {#<script type="text/javascript" src="{{ asset('js/jquery.forms.js') }}"></script>#}
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/enscroll-0.6.1.min.js') }}"></script>
-    <script type="text/javascript">
-        $('#reservationform').submit(function(e) {
-            document.location = $(this).find('[name="room"]').val();
+    {#<script type="text/javascript">#}
+        {#$('#reservationform').submit(function(e) {#}
+            {#document.location = $(this).find('[name="room"]').val();#}
 
-            e.preventDefault();
-            return false;
-        });
-    </script>
+            {#e.preventDefault();#}
+            {#return false;#}
+        {#});#}
+    {#</script>#}
 {% endblock %}
 <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=30380767"></script>
 </body>
