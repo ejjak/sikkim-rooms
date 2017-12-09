@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="page" style="padding-top: 140px; text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="nb-error">
+                        <div class="error-code">
+                            <h1 style="font-size: 200px">404</h1>
+                        </div>
+                        <h3 class="font-bold">We couldn't find the page..</h3>
+
+                        <div class="error-desc">
+                            Sorry, but the page you are looking for was either not found or does not exist. <br/>
+                            Try refreshing the page or click the button below to go back to the Homepage.
+                            <ul class="list-inline text-center text-sm">
+                                <li class="list-inline-item"><a href="{{ path('homepage') }}" class="text-muted">Go to Home</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% block stylesheet %}
+    <style>
+        .nb-error {
+            margin: 0 auto;
+            text-align: center;
+            max-width: 480px;
+            padding: 60px 30px;
+        }
+
+        .nb-error .error-code {
+            color: #2d353c;
+
+            line-height: 100px;
+        }
+
+        .nb-error .error-desc {
+            font-size: 12px;
+            color: #647788;
+        }
+        .nb-error .input-group{
+            margin: 30px 0;
+        }
+    </style>
+{% endblock %}

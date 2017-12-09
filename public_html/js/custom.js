@@ -420,7 +420,7 @@ $(document).ready(function() {
         "<option value='500,1000'>500 - 1000</option><option value='1100,1500'>1100 - 1500</option>",
         "<option value='1600,2000'>1600 - 2000</option><option value='2100,2500'>2100 - 2500</option>",
         "<option value='2600,3500'>2600 - 3500</option><option value='3600,5500'>3600 - 5500</option>",
-        "<option value='5600,7000'>5600 - 7000</option><option value='7000-10000'>7000 - above</option>"
+        "<option value='5600,7000'>5600 - 7000</option><option value='7000,10000'>7000 - above</option>"
     ];
 
 });
